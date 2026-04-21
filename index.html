@@ -1,24 +1,673 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ja">
   <head>
-    <title>Fortyone Agency LLC</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fortyone Agency | AI導入を構想から実装まで支援</title>
+    <meta
+      name="description"
+      content="Fortyone Agencyは企業のAI導入を戦略整理から実装・定着まで支援します。"
+    />
+    <style>
+      :root {
+        --bg: #f3efe7;
+        --surface: rgba(255, 255, 255, 0.78);
+        --surface-strong: #fffdf8;
+        --ink: #1d1c1a;
+        --muted: #615b54;
+        --line: rgba(29, 28, 26, 0.12);
+        --accent: #0a7c73;
+        --accent-soft: #d8efe9;
+        --accent-warm: #f1c67b;
+        --shadow: 0 24px 60px rgba(36, 31, 24, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", "Avenir Next", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top left, rgba(241, 198, 123, 0.35), transparent 30%),
+          radial-gradient(circle at top right, rgba(10, 124, 115, 0.2), transparent 28%),
+          linear-gradient(180deg, #f8f4ec 0%, var(--bg) 100%);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .page-shell {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .page-shell::before,
+      .page-shell::after {
+        content: "";
+        position: absolute;
+        border-radius: 999px;
+        filter: blur(20px);
+        pointer-events: none;
+      }
+
+      .page-shell::before {
+        top: 5rem;
+        right: -6rem;
+        width: 18rem;
+        height: 18rem;
+        background: rgba(10, 124, 115, 0.12);
+      }
+
+      .page-shell::after {
+        bottom: 10rem;
+        left: -5rem;
+        width: 16rem;
+        height: 16rem;
+        background: rgba(241, 198, 123, 0.18);
+      }
+
+      .container {
+        width: min(1120px, calc(100% - 2rem));
+        margin: 0 auto;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        backdrop-filter: blur(20px);
+        background: rgba(248, 244, 236, 0.84);
+        border-bottom: 1px solid rgba(29, 28, 26, 0.08);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        min-height: 4.75rem;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.9rem;
+        font-size: 0.95rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .brand img {
+        width: 180px;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        border-radius: 999px;
+        padding: 0.95rem 1.4rem;
+        font-weight: 600;
+        transition:
+          transform 180ms ease,
+          box-shadow 180ms ease,
+          background-color 180ms ease,
+          color 180ms ease;
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+      }
+
+      .button-primary {
+        background: var(--ink);
+        color: #fff;
+        box-shadow: 0 12px 24px rgba(29, 28, 26, 0.18);
+      }
+
+      .button-secondary {
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.52);
+      }
+
+      .hero {
+        padding: 5.5rem 0 4rem;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        border-radius: 999px;
+        padding: 0.45rem 0.8rem;
+        background: rgba(255, 255, 255, 0.6);
+        border: 1px solid rgba(10, 124, 115, 0.14);
+        color: var(--accent);
+        font-size: 0.88rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 0.55rem;
+        height: 0.55rem;
+        border-radius: 999px;
+        background: var(--accent);
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      h1 {
+        margin-top: 1.2rem;
+        font-size: clamp(3rem, 7vw, 5.6rem);
+        line-height: 0.94;
+      }
+
+      .hero-copy p,
+      .section-intro p,
+      .card p,
+      .founder-copy p,
+      .timeline-item p,
+      .cta-copy p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.65;
+        font-size: 1.04rem;
+      }
+
+      .hero-copy .lead {
+        margin-top: 1.4rem;
+        max-width: 42rem;
+        font-size: 1.15rem;
+      }
+
+      .hero-actions,
+      .hero-signals {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.9rem;
+      }
+
+      .hero-actions {
+        margin-top: 2rem;
+      }
+
+      .hero-signals {
+        margin-top: 1.75rem;
+      }
+
+      .signal {
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.66);
+        padding: 0.7rem 1rem;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .testimonial,
+      .card,
+      .founder-panel,
+      .timeline-item,
+      .cta-panel {
+        border: 1px solid rgba(29, 28, 26, 0.08);
+        background: var(--surface);
+        backdrop-filter: blur(12px);
+        box-shadow: var(--shadow);
+      }
+
+      .hero-copy {
+        max-width: 48rem;
+      }
+
+      .testimonials {
+        margin-top: 2.2rem;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .testimonial {
+        border-radius: 1.4rem;
+        padding: 1.35rem;
+      }
+
+      .testimonial blockquote {
+        margin: 0 0 1rem;
+        font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+        font-size: 1.3rem;
+        line-height: 1.2;
+      }
+
+      .testimonial span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      section {
+        padding: 2.5rem 0;
+      }
+
+      .section-head {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        gap: 1.5rem;
+        align-items: end;
+        margin-bottom: 1.5rem;
+      }
+
+      .section-kicker {
+        color: var(--accent);
+        font-size: 0.88rem;
+        font-weight: 700;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        font-size: clamp(2.1rem, 5vw, 3.35rem);
+        line-height: 1.02;
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.2rem;
+      }
+
+      .card {
+        border-radius: 1.5rem;
+        padding: 1.45rem;
+      }
+
+      .card-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.3rem;
+        height: 2.3rem;
+        margin-bottom: 1rem;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      .card h3 {
+        margin-bottom: 0.7rem;
+        font-size: 1.45rem;
+      }
+
+      .founder-panel {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        gap: 2rem;
+        border-radius: 2rem;
+        padding: 2rem;
+        background:
+          linear-gradient(135deg, rgba(255, 253, 248, 0.95), rgba(216, 239, 233, 0.7)),
+          var(--surface-strong);
+      }
+
+      .founder-mark {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 18rem;
+        border-radius: 1.5rem;
+        background:
+          linear-gradient(160deg, rgba(29, 28, 26, 0.96), rgba(10, 124, 115, 0.88));
+        color: #fff;
+        padding: 1.6rem;
+      }
+
+      .founder-mark blockquote {
+        margin: 0;
+        font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+        font-size: clamp(1.8rem, 4vw, 2.6rem);
+        line-height: 1.06;
+      }
+
+      .founder-copy {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
+      }
+
+      .timeline {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .timeline-item {
+        border-radius: 1.4rem;
+        padding: 1.35rem;
+      }
+
+      .timeline-step {
+        display: inline-flex;
+        margin-bottom: 0.85rem;
+        color: var(--accent);
+        font-weight: 700;
+        font-size: 0.9rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .cta {
+        padding-bottom: 5rem;
+      }
+
+      .cta-panel {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+        gap: 1.5rem;
+        border-radius: 2rem;
+        padding: 2rem;
+        background:
+          linear-gradient(135deg, rgba(29, 28, 26, 0.96), rgba(29, 28, 26, 0.82)),
+          var(--ink);
+        color: #fff;
+      }
+
+      .cta-copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.85rem;
+      }
+
+      .cta-copy p {
+        color: rgba(255, 255, 255, 0.72);
+        max-width: 38rem;
+      }
+
+      .cta-list {
+        display: grid;
+        gap: 0.9rem;
+        align-content: center;
+      }
+
+      .cta-point {
+        padding: 0.95rem 1rem;
+        border-radius: 1rem;
+        background: rgba(255, 255, 255, 0.08);
+        color: rgba(255, 255, 255, 0.82);
+      }
+
+      .site-footer {
+        padding: 1.4rem 0 2.5rem;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      @media (max-width: 980px) {
+        .section-head,
+        .testimonials,
+        .founder-panel,
+        .cta-panel,
+        .timeline {
+          grid-template-columns: 1fr;
+        }
+
+        .card-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .nav {
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          padding: 1rem 0;
+        }
+
+        .nav-links {
+          flex-wrap: wrap;
+        }
+
+        .hero {
+          padding-top: 4rem;
+        }
+
+        .testimonial,
+        .card,
+        .founder-panel,
+        .timeline-item,
+        .cta-panel {
+          border-radius: 1.5rem;
+        }
+
+        .brand img {
+          width: 160px;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div style="position: relative; height: 100%">
-      <div
-        style="
-          transform: translateX(-50%) translateY(-50%);
-          top: 50%;
-          left: 50%;
-          position: absolute;
-        "
-      >
-        <img
-          src="logo.svg"
-          alt="icon"
-          width="500"
-          style="margin: auto; display: block"
-        />
-      </div>
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="container nav">
+          <a class="brand" href="#top" aria-label="Fortyone Agency home">
+            <img src="logo.svg" alt="Fortyone Agency" />
+          </a>
+          <nav class="nav-links" aria-label="グローバルナビゲーション">
+            <a href="#services">支援内容</a>
+            <a href="#leadership">代表について</a>
+            <a href="#approach">進め方</a>
+            <a class="button button-secondary" href="#contact">お問い合わせ</a>
+          </nav>
+        </div>
+      </header>
+
+      <main id="top">
+        <section class="hero">
+          <div class="container">
+            <div class="hero-copy">
+              <span class="eyebrow">AI導入を構想で終わらせない</span>
+              <h1>AI導入の構想を、現場で使える仕組みへ。</h1>
+              <p class="lead">
+                Fortyone AgencyはAI導入に悩む企業に対し、
+                戦略整理から実装、定着までを支援します。
+              </p>
+              <div class="hero-actions">
+                <a class="button button-primary" href="#contact">お問い合わせ</a>
+                <a class="button button-secondary" href="#services">支援内容を見る</a>
+              </div>
+              <div class="hero-signals" aria-label="主な支援領域">
+                <span class="signal">戦略立案から実装推進まで</span>
+                <span class="signal">業務変革と組織定着を支援</span>
+                <span class="signal">顧客向けAI活用も対応</span>
+              </div>
+              <div class="testimonials" aria-label="ご相談時によく伺うお悩み">
+                <article class="testimonial">
+                  <blockquote>
+                    「AIに取り組みたいが、どこから着手すべきか決めきれない。」
+                  </blockquote>
+                  <span>着手テーマの整理から支援します。</span>
+                </article>
+                <article class="testimonial">
+                  <blockquote>
+                    「推進したいが、現場で回る形に落とし込めていない。」
+                  </blockquote>
+                  <span>体制設計と実行計画を整えます。</span>
+                </article>
+                <article class="testimonial">
+                  <blockquote>
+                    「PoCは実施したが、本番運用や社内定着まで進まない。」
+                  </blockquote>
+                  <span>本番導入と定着まで伴走します。</span>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="services">
+          <div class="container">
+            <div class="section-head">
+              <div class="section-intro">
+                <div class="section-kicker">支援内容</div>
+                <h2>AI導入をプランニングから実装まで支援します。</h2>
+              </div>
+              <div class="section-intro">
+            
+              </div>
+            </div>
+
+            <div class="card-grid">
+              <article class="card">
+                <div class="card-number">01</div>
+                <h3>AI導入戦略の整理</h3>
+                <p>
+                  取り組むべきテーマと優先順位を整理します。
+                </p>
+              </article>
+              <article class="card">
+                <div class="card-number">02</div>
+                <h3>業務・プロダクト設計</h3>
+                <p>
+                  業務や顧客体験に合う形へ設計します。
+                </p>
+              </article>
+              <article class="card">
+                <div class="card-number">03</div>
+                <h3>実装推進・定着支援</h3>
+                <p>
+                  実装推進と定着まで支援します。
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="leadership">
+          <div class="container">
+            <div class="founder-panel">
+              <div class="founder-mark">
+                <blockquote>
+                  AI導入で重要なのは技術より実行力です。
+                </blockquote>
+              </div>
+              <div class="founder-copy">
+                <div class="section-kicker">代表について</div>
+                <h2>グローバル開発の経験をAI導入支援へ。</h2>
+                <p>
+                  CEOのJonathanは数々の企業の社外CTO・VPoEとして組織を再定義し、
+                  プロダクトとエンジニアリングの両面で日本のテックカンパニーを率いてきました。
+                </p>
+                <p>
+                  MercariではDirector of Engineeringとして、米国向けのモバイルアプリとWebを担うチームを率いました。
+                </p>
+                <p>
+                  20年以上の経歴をもとに、AI導入を実装と定着まで支援します。
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="approach">
+          <div class="container">
+            <div class="section-head">
+              <div class="section-intro">
+                <div class="section-kicker">進め方</div>
+                <h2>シンプル、スマートに実装まで持っていく。</h2>
+              </div>
+              <div class="section-intro">
+                
+              </div>
+            </div>
+
+            <div class="timeline">
+              <article class="timeline-item">
+                <span class="timeline-step">01</span>
+                <h3>現状把握</h3>
+                <p>
+                  課題と制約を整理します。
+                </p>
+              </article>
+              <article class="timeline-item">
+                <span class="timeline-step">02</span>
+                <h3>優先順位設計</h3>
+                <p>
+                  取り組む順番を決めます。
+                </p>
+              </article>
+              <article class="timeline-item">
+                <span class="timeline-step">03</span>
+                <h3>設計・実装推進</h3>
+                <p>
+                  実行できる形へ落とし込みます。
+                </p>
+              </article>
+              <article class="timeline-item">
+                <span class="timeline-step">04</span>
+                <h3>定着支援</h3>
+                <p>
+                  定着まで支援します。
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="cta" id="contact">
+          <div class="container">
+            <div class="cta-panel">
+              <div class="cta-copy">
+                <div class="section-kicker" style="color: var(--accent-warm)">お問い合わせ</div>
+                <h2>AI導入のご相談は</br>こちら。</h2>
+              </div>
+              <div class="cta-list" aria-label="初回相談でよくあるテーマ">
+                <div class="cta-point">どこから始めるべきか知りたい</div>
+                <div class="cta-point">PoCから本番導入へ進めたい</div>
+                <div class="cta-point">組織に定着させたい</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container">Fortyone Agency LLC</div>
+      </footer>
     </div>
   </body>
 </html>
