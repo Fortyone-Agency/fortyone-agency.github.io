@@ -6,7 +6,7 @@
     <title>Fortyone Agency | AI導入を構想から実装まで支援</title>
     <meta
       name="description"
-      content="Fortyone Agencyは企業のAI導入を戦略整理から実装・定着まで支援します。"
+      content="Fortyone Agencyは”AIを導入して終わり”にしない。成果につながる運用まで支援します。"
     />
     <style>
       :root {
@@ -121,6 +121,49 @@
         gap: 1.25rem;
         color: var(--muted);
         font-size: 0.95rem;
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .language-switch {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.25rem;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.72);
+      }
+
+      .language-button {
+        border: 0;
+        border-radius: 999px;
+        padding: 0.5rem 0.8rem;
+        background: transparent;
+        color: var(--muted);
+        font: inherit;
+        font-size: 0.86rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition:
+          background-color 180ms ease,
+          color 180ms ease,
+          transform 180ms ease;
+      }
+
+      .language-button:hover {
+        transform: translateY(-1px);
+      }
+
+      .language-button.is-active {
+        background: var(--ink);
+        color: #fff;
       }
 
       .button {
@@ -458,6 +501,12 @@
           padding: 1rem 0;
         }
 
+        .nav-actions {
+          width: 100%;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
         .nav-links {
           flex-wrap: wrap;
         }
@@ -484,15 +533,39 @@
     <div class="page-shell">
       <header class="site-header">
         <div class="container nav">
-          <a class="brand" href="#top" aria-label="Fortyone Agency home">
+          <a
+            class="brand"
+            href="#top"
+            aria-label="Fortyone Agency home"
+            data-i18n-attr="aria-label"
+            data-i18n-key="brandAriaLabel"
+          >
             <img src="logo.svg" alt="Fortyone Agency" />
           </a>
-          <nav class="nav-links" aria-label="グローバルナビゲーション">
-            <a href="#services">支援内容</a>
-            <a href="#leadership">代表について</a>
-            <a href="#approach">進め方</a>
-            <a class="button button-secondary" href="#contact">お問い合わせ</a>
-          </nav>
+          <div class="nav-actions">
+            <nav
+              class="nav-links"
+              aria-label="グローバルナビゲーション"
+              data-i18n-attr="aria-label"
+              data-i18n-key="navAriaLabel"
+            >
+              <a href="#services" data-i18n="navServices">支援内容</a>
+              <a href="#company" data-i18n="navCompany">会社情報</a>
+              <a href="#leadership" data-i18n="navLeadership">代表について</a>
+              <a href="#approach" data-i18n="navApproach">進め方</a>
+              <a class="button button-secondary" href="#contact" data-i18n="navContact">お問い合わせ</a>
+            </nav>
+            <div
+              class="language-switch"
+              role="group"
+              aria-label="Language switcher"
+              data-i18n-attr="aria-label"
+              data-i18n-key="languageSwitcherLabel"
+            >
+              <button class="language-button is-active" type="button" data-lang="ja">JA</button>
+              <button class="language-button" type="button" data-lang="en">EN</button>
+            </div>
+          </div>
         </div>
       </header>
 
@@ -500,39 +573,49 @@
         <section class="hero">
           <div class="container">
             <div class="hero-copy">
-              <span class="eyebrow">AI導入を構想で終わらせない</span>
-              <h1>AI導入の構想を、現場で使える仕組みへ。</h1>
-              <p class="lead">
+              <span class="eyebrow" data-i18n="heroEyebrow">AI導入を構想で終わらせない</span>
+              <h1 data-i18n="heroTitle">AI導入の構想を、現場で使える仕組みへ。</h1>
+              <p class="lead" data-i18n="heroLead">
                 Fortyone AgencyはAI導入に悩む企業に対し、
                 戦略整理から実装、定着までを支援します。
               </p>
               <div class="hero-actions">
-                <a class="button button-primary" href="#contact">お問い合わせ</a>
-                <a class="button button-secondary" href="#services">支援内容を見る</a>
+                <a class="button button-primary" href="#contact" data-i18n="heroPrimaryCta">お問い合わせ</a>
+                <a class="button button-secondary" href="#services" data-i18n="heroSecondaryCta">支援内容を見る</a>
               </div>
-              <div class="hero-signals" aria-label="主な支援領域">
-                <span class="signal">戦略立案から実装推進まで</span>
-                <span class="signal">業務変革と組織定着を支援</span>
-                <span class="signal">顧客向けAI活用も対応</span>
+              <div
+                class="hero-signals"
+                aria-label="主な支援領域"
+                data-i18n-attr="aria-label"
+                data-i18n-key="heroSignalsAriaLabel"
+              >
+                <span class="signal" data-i18n="signalOne">戦略立案から実装推進まで</span>
+                <span class="signal" data-i18n="signalTwo">業務変革と組織定着を支援</span>
+                <span class="signal" data-i18n="signalThree">顧客向けAI活用も対応</span>
               </div>
-              <div class="testimonials" aria-label="ご相談時によく伺うお悩み">
+              <div
+                class="testimonials"
+                aria-label="ご相談時によく伺うお悩み"
+                data-i18n-attr="aria-label"
+                data-i18n-key="testimonialsAriaLabel"
+              >
                 <article class="testimonial">
-                  <blockquote>
+                  <blockquote data-i18n="testimonialOneQuote">
                     「AIに取り組みたいが、どこから着手すべきか決めきれない。」
                   </blockquote>
-                  <span>着手テーマの整理から支援します。</span>
+                  <span data-i18n="testimonialOneDetail">着手テーマの整理から支援します。</span>
                 </article>
                 <article class="testimonial">
-                  <blockquote>
+                  <blockquote data-i18n="testimonialTwoQuote">
                     「推進したいが、現場で回る形に落とし込めていない。」
                   </blockquote>
-                  <span>体制設計と実行計画を整えます。</span>
+                  <span data-i18n="testimonialTwoDetail">体制設計と実行計画を整えます。</span>
                 </article>
                 <article class="testimonial">
-                  <blockquote>
+                  <blockquote data-i18n="testimonialThreeQuote">
                     「PoCは実施したが、本番運用や社内定着まで進まない。」
                   </blockquote>
-                  <span>本番導入と定着まで伴走します。</span>
+                  <span data-i18n="testimonialThreeDetail">本番導入と定着まで伴走します。</span>
                 </article>
               </div>
             </div>
@@ -543,8 +626,8 @@
           <div class="container">
             <div class="section-head">
               <div class="section-intro">
-                <div class="section-kicker">支援内容</div>
-                <h2>AI導入をプランニングから実装まで支援します。</h2>
+                <div class="section-kicker" data-i18n="servicesKicker">支援内容</div>
+                <h2 data-i18n="servicesTitle">AI導入をプランニングから実装まで支援します。</h2>
               </div>
               <div class="section-intro">
             
@@ -554,22 +637,22 @@
             <div class="card-grid">
               <article class="card">
                 <div class="card-number">01</div>
-                <h3>AI導入戦略の整理</h3>
-                <p>
+                <h3 data-i18n="serviceOneTitle">AI導入戦略の整理</h3>
+                <p data-i18n="serviceOneBody">
                   取り組むべきテーマと優先順位を整理します。
                 </p>
               </article>
               <article class="card">
                 <div class="card-number">02</div>
-                <h3>業務・プロダクト設計</h3>
-                <p>
+                <h3 data-i18n="serviceTwoTitle">業務・プロダクト設計</h3>
+                <p data-i18n="serviceTwoBody">
                   業務や顧客体験に合う形へ設計します。
                 </p>
               </article>
               <article class="card">
                 <div class="card-number">03</div>
-                <h3>実装推進・定着支援</h3>
-                <p>
+                <h3 data-i18n="serviceThreeTitle">実装推進・定着支援</h3>
+                <p data-i18n="serviceThreeBody">
                   実装推進と定着まで支援します。
                 </p>
               </article>
@@ -581,24 +664,64 @@
           <div class="container">
             <div class="founder-panel">
               <div class="founder-mark">
-                <blockquote>
+                <blockquote data-i18n="founderQuote">
                   AI導入で重要なのは技術より実行力です。
                 </blockquote>
               </div>
               <div class="founder-copy">
-                <div class="section-kicker">代表について</div>
-                <h2>グローバル開発の経験をAI導入支援へ。</h2>
-                <p>
+                <div class="section-kicker" data-i18n="leadershipKicker">代表について</div>
+                <h2 data-i18n="leadershipTitle">グローバル開発の経験をAI導入支援へ。</h2>
+                <p data-i18n="leadershipBodyOne">
                   CEOのJonathanは数々の企業の社外CTO・VPoEとして組織を再定義し、
                   プロダクトとエンジニアリングの両面で日本のテックカンパニーを率いてきました。
                 </p>
-                <p>
+                <p data-i18n="leadershipBodyTwo">
                   MercariではDirector of Engineeringとして、米国向けのモバイルアプリとWebを担うチームを率いました。
                 </p>
-                <p>
+                <p data-i18n="leadershipBodyThree">
                   20年以上の経歴をもとに、AI導入を実装と定着まで支援します。
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="company">
+          <div class="container">
+            <div class="section-head">
+              <div class="section-intro">
+                <div class="section-kicker" data-i18n="companyKicker">会社情報</div>
+                <h2 data-i18n="companyTitle">Fortyone Agencyについて</h2>
+              </div>
+              <div class="section-intro">
+                <p data-i18n="companyBody">
+                  私たちは、AIの実装と運用までを見据えた支援で、企業が現実の成果を出せるよう伴走します。
+                </p>
+              </div>
+            </div>
+
+            <div class="card-grid">
+              <article class="card">
+                <div class="card-number">01</div>
+                <h3 data-i18n="companyOneTitle">設立と所在地</h3>
+                <p data-i18n="companyOneBody">
+                  Fortyone Agency LLCは東京を拠点に、国内外の企業へAI導入支援を提供しています。
+                </p>
+              </article>
+              <article class="card">
+                <div class="card-number">02</div>
+                <h3 data-i18n="companyTwoTitle">ミッション</h3>
+                <p data-i18n="companyTwoBody">
+                  技術だけでなく、現場で使われる仕組みをつくり、成果につながるAI活用を実現します。
+                </p>
+              </article>
+              <article class="card">
+                <div class="card-number">03</div>
+                <h3 data-i18n="companyThreeTitle">価値観</h3>
+                <p data-i18n="companyThreeBody">
+                  実行力、現場重視、継続的な価値提供を大切にしています。
+                </p>
+              </article>
             </div>
           </div>
         </section>
@@ -607,8 +730,8 @@
           <div class="container">
             <div class="section-head">
               <div class="section-intro">
-                <div class="section-kicker">進め方</div>
-                <h2>シンプル、スマートに実装まで持っていく。</h2>
+                <div class="section-kicker" data-i18n="approachKicker">進め方</div>
+                <h2 data-i18n="approachTitle">シンプル、スマートに実装まで持っていく。</h2>
               </div>
               <div class="section-intro">
                 
@@ -618,29 +741,29 @@
             <div class="timeline">
               <article class="timeline-item">
                 <span class="timeline-step">01</span>
-                <h3>現状把握</h3>
-                <p>
+                <h3 data-i18n="approachOneTitle">現状把握</h3>
+                <p data-i18n="approachOneBody">
                   課題と制約を整理します。
                 </p>
               </article>
               <article class="timeline-item">
                 <span class="timeline-step">02</span>
-                <h3>優先順位設計</h3>
-                <p>
+                <h3 data-i18n="approachTwoTitle">優先順位設計</h3>
+                <p data-i18n="approachTwoBody">
                   取り組む順番を決めます。
                 </p>
               </article>
               <article class="timeline-item">
                 <span class="timeline-step">03</span>
-                <h3>設計・実装推進</h3>
-                <p>
+                <h3 data-i18n="approachThreeTitle">設計・実装推進</h3>
+                <p data-i18n="approachThreeBody">
                   実行できる形へ落とし込みます。
                 </p>
               </article>
               <article class="timeline-item">
                 <span class="timeline-step">04</span>
-                <h3>定着支援</h3>
-                <p>
+                <h3 data-i18n="approachFourTitle">定着支援</h3>
+                <p data-i18n="approachFourBody">
                   定着まで支援します。
                 </p>
               </article>
@@ -652,13 +775,24 @@
           <div class="container">
             <div class="cta-panel">
               <div class="cta-copy">
-                <div class="section-kicker" style="color: var(--accent-warm)">お問い合わせ</div>
-                <h2>AI導入のご相談は</br>こちら。</h2>
+                <div
+                  class="section-kicker"
+                  style="color: var(--accent-warm)"
+                  data-i18n="contactKicker"
+                >
+                  お問い合わせ
+                </div>
+                <h2 data-i18n="contactTitle">AI導入のご相談は<br />こちら。</h2>
               </div>
-              <div class="cta-list" aria-label="初回相談でよくあるテーマ">
-                <div class="cta-point">どこから始めるべきか知りたい</div>
-                <div class="cta-point">PoCから本番導入へ進めたい</div>
-                <div class="cta-point">組織に定着させたい</div>
+              <div
+                class="cta-list"
+                aria-label="初回相談でよくあるテーマ"
+                data-i18n-attr="aria-label"
+                data-i18n-key="contactListAriaLabel"
+              >
+                <div class="cta-point" data-i18n="contactPointOne">どこから始めるべきか知りたい</div>
+                <div class="cta-point" data-i18n="contactPointTwo">PoCから本番導入へ進めたい</div>
+                <div class="cta-point" data-i18n="contactPointThree">組織に定着させたい</div>
               </div>
             </div>
           </div>
@@ -669,5 +803,212 @@
         <div class="container">Fortyone Agency LLC</div>
       </footer>
     </div>
+    <script>
+      const translations = {
+        ja: {
+          pageTitle: "Fortyone Agency | AI導入を構想から実装まで支援",
+          metaDescription:
+            "Fortyone Agencyは企業のAI導入を戦略整理から実装・定着まで支援します。",
+          brandAriaLabel: "Fortyone Agency home",
+          languageSwitcherLabel: "言語切替",
+          navAriaLabel: "グローバルナビゲーション",
+          navServices: "支援内容",
+          navLeadership: "代表について",
+          navApproach: "進め方",
+          navContact: "お問い合わせ",
+          heroEyebrow: "AI導入を構想で終わらせない",
+          heroTitle: "AI導入の構想を、現場で使える仕組みへ。",
+          heroLead:
+            "Fortyone Agencyは”AIを導入して終わり”にしない。成果につながる運用まで支援します。",
+          heroPrimaryCta: "お問い合わせ",
+          heroSecondaryCta: "支援内容を見る",
+          heroSignalsAriaLabel: "主な支援領域",
+          signalOne: "戦略立案から実装推進まで",
+          signalTwo: "業務変革と組織定着を支援",
+          signalThree: "顧客向けAI活用も対応",
+          testimonialsAriaLabel: "ご相談時によく伺うお悩み",
+          testimonialOneQuote: "「AIに取り組みたいが、どこから着手すべきか決めきれない。」",
+          testimonialOneDetail: "着手テーマの整理から支援します。",
+          testimonialTwoQuote: "「社内で推進はしたいが、現場で回る形に落とし込めていない。」",
+          testimonialTwoDetail: "体制設計と実行計画を整えます。",
+          testimonialThreeQuote: "「PoCは実施したが、本番運用や社内定着まで進まない。」",
+          testimonialThreeDetail: "本番運用から社内定着まで完結させます。",
+          servicesKicker: "支援内容",
+          servicesTitle: "AI導入をプランニングから実装まで支援します。",
+          serviceOneTitle: "AI導入戦略の整理",
+          serviceOneBody: "取り組むべきテーマと優先順位を整理します。",
+          serviceTwoTitle: "業務・プロダクト設計",
+          serviceTwoBody: "業務や顧客体験に合う形へ設計します。",
+          serviceThreeTitle: "実装推進・定着支援",
+          serviceThreeBody: "現場で使われ続ける運用まで支援します。",
+          founderQuote: "AI導入で重要なのは技術より実行力です。",
+          leadershipKicker: "代表について",
+          leadershipTitle: "グローバル開発の経験をAI導入支援へ。",
+          leadershipBodyOne:
+            "CEOのJonathanは日本のスタートアップからグローバル企業まで技術戦略の意思決定を支援するFractional CTOとして活動中。",
+          leadershipBodyTwo:
+            "メルカリではUS向けモバイル・Webプロダクト開発チームを率いるなど、日本・グローバル市場の両方で豊富な開発組織経験を持つ。",
+          leadershipBodyThree:
+            "20年以上の経験を持ち、AI技術を強みとして、長期的な事業価値につながる技術支援を提供します。",
+          companyKicker: "会社情報",
+          companyTitle: "Fortyone Agencyについて",
+          companyBody:
+            "私たちは、AIの実装と運用までを見据えた支援で、企業が現実の成果を出せるよう伴走します。",
+          companyOneTitle: "設立と所在地",
+          companyOneBody:
+            "Fortyone Agency LLCは東京を拠点に、国内外の企業へAI導入支援を提供しています。",
+          companyTwoTitle: "ミッション",
+          companyTwoBody:
+            "技術だけでなく、現場で使われる仕組みをつくり、成果につながるAI活用を実現します。",
+          companyThreeTitle: "価値観",
+          companyThreeBody:
+            "実行力、現場重視、継続的な価値提供を大切にしています。",
+          approachKicker: "進め方",
+          approachTitle: "短期間で価値につなげる4ステップ。",
+          approachOneTitle: "現状理解",
+          approachOneBody: "重要な課題をすばやく明らかにします。",
+          approachTwoTitle: "優先設計",
+          approachTwoBody: "最も効果の高い進め方を決めます。",
+          approachThreeTitle: "構築・検証",
+          approachThreeBody: "実装できる形にまとめます。",
+          approachFourTitle: "定着",
+          approachFourBody: "運用につながる実行まで支援します。",
+          contactKicker: "お問い合わせ",
+          contactTitle: "AI導入のご相談は<br />こちら。",
+          contactListAriaLabel: "初回相談でよくあるテーマ",
+          contactPointOne: "どこから始めるべきか知りたい",
+          contactPointTwo: "PoCから本番導入へ進めたい",
+          contactPointThree: "組織に定着させたい",
+        },
+        en: {
+          pageTitle: "Fortyone Agency | From AI strategy to implementation",
+          metaDescription:
+            "Fortyone Agency helps companies turn AI initiatives into real implementation and adoption.",
+          brandAriaLabel: "Fortyone Agency home",
+          languageSwitcherLabel: "Language switcher",
+          navAriaLabel: "Global navigation",
+          navServices: "Services",
+          navLeadership: "Leadership",
+          navApproach: "Approach",
+          navCompany: "Company",
+          navContact: "Contact",
+          heroEyebrow: "Turn AI plans into real execution",
+          heroTitle: "From AI strategy to systems your team can actually use.",
+          heroLead:
+            "Fortyone Agency supports companies with AI adoption from strategy and implementation through long-term adoption.",
+          heroPrimaryCta: "Contact us",
+          heroSecondaryCta: "View services",
+          heroSignalsAriaLabel: "Primary support areas",
+          signalOne: "From strategy design to implementation",
+          signalTwo: "Support for workflow change and adoption",
+          signalThree: "AI enablement for customer-facing products",
+          testimonialsAriaLabel: "Common challenges we hear",
+          testimonialOneQuote:
+            "\"We want to work on AI, but we have not decided where to start.\"",
+          testimonialOneDetail: "We help define the right starting initiatives.",
+          testimonialTwoQuote:
+            "\"We want to move forward, but it has not been shaped into something teams can run.\"",
+          testimonialTwoDetail: "We build the structure and execution plan.",
+          testimonialThreeQuote:
+            "\"We ran a PoC, but it has not reached production or internal adoption.\"",
+          testimonialThreeDetail: "We support rollout all the way to adoption.",
+          servicesKicker: "Services",
+          servicesTitle: "Support for AI adoption from planning through implementation.",
+          serviceOneTitle: "AI strategy definition",
+          serviceOneBody: "We clarify the right themes to pursue and how to prioritize them.",
+          serviceTwoTitle: "Workflow and product design",
+          serviceTwoBody: "We design AI initiatives to fit your operations and customer experience.",
+          serviceThreeTitle: "Implementation and adoption support",
+          serviceThreeBody: "We help drive execution and lasting adoption.",
+          founderQuote: "Successful AI adoption depends more on execution than technology.",
+          leadershipKicker: "Leadership",
+          leadershipTitle: "Global product and engineering experience applied to AI adoption.",
+          leadershipBodyOne:
+            "Jonathan, our CEO, has helped redefine organizations as an external CTO and VPoE, leading Japanese tech companies across both product and engineering.",
+          leadershipBodyTwo:
+            "At Mercari, he served as Director of Engineering and led teams responsible for the U.S. mobile app and web experience.",
+          leadershipBodyThree:
+            "With more than 20 years of experience, he supports AI adoption through implementation and sustained operational use.",
+          companyKicker: "Company",
+          companyTitle: "About Fortyone Agency",
+          companyBody:
+            "We support companies through AI implementation and long-term adoption with practical, business-focused guidance.",
+          companyOneTitle: "Founded and based in Tokyo",
+          companyOneBody:
+            "Fortyone Agency LLC is headquartered in Tokyo and works with companies in Japan and abroad.",
+          companyTwoTitle: "Our mission",
+          companyTwoBody:
+            "We build AI solutions that are adopted by teams and deliver measurable business value.",
+          companyThreeTitle: "Our values",
+          companyThreeBody:
+            "We prioritize execution, practical adoption, and sustained impact.",
+          approachKicker: "Approach",
+          approachTitle: "Fast, practical steps from idea to use.",
+          approachOneTitle: "Assess",
+          approachOneBody: "We quickly clarify the most important gaps.",
+          approachTwoTitle: "Plan",
+          approachTwoBody: "We choose the highest-value work to do first.",
+          approachThreeTitle: "Build",
+          approachThreeBody: "We turn that plan into a working solution.",
+          approachFourTitle: "Adopt",
+          approachFourBody: "We help your team start using it in practice.",
+          contactKicker: "Contact",
+          contactTitle: "Let's talk about<br />your AI initiative.",
+          contactListAriaLabel: "Common topics for an initial conversation",
+          contactPointOne: "Figure out where to begin",
+          contactPointTwo: "Move from PoC to production",
+          contactPointThree: "Make adoption stick across the organization",
+        },
+      };
+
+      const languageButtons = document.querySelectorAll("[data-lang]");
+      const translatableNodes = document.querySelectorAll("[data-i18n]");
+      const attributeNodes = document.querySelectorAll("[data-i18n-attr]");
+      const descriptionMeta = document.querySelector('meta[name="description"]');
+
+      function applyLanguage(lang) {
+        const locale = translations[lang] ? lang : "ja";
+        const dictionary = translations[locale];
+
+        document.documentElement.lang = locale;
+        document.title = dictionary.pageTitle;
+        descriptionMeta.setAttribute("content", dictionary.metaDescription);
+
+        translatableNodes.forEach((node) => {
+          const key = node.dataset.i18n;
+          if (dictionary[key]) {
+            node.innerHTML = dictionary[key];
+          }
+        });
+
+        attributeNodes.forEach((node) => {
+          const attrName = node.dataset.i18nAttr;
+          const key = node.dataset.i18nKey;
+          if (attrName && key && dictionary[key]) {
+            node.setAttribute(attrName, dictionary[key]);
+          }
+        });
+
+        languageButtons.forEach((button) => {
+          const isActive = button.dataset.lang === locale;
+          button.classList.toggle("is-active", isActive);
+          button.setAttribute("aria-pressed", String(isActive));
+        });
+
+        localStorage.setItem("preferredLanguage", locale);
+      }
+
+      const savedLanguage = localStorage.getItem("preferredLanguage");
+      const browserLanguage = navigator.language && navigator.language.toLowerCase().startsWith("ja")
+        ? "ja"
+        : "en";
+      const initialLanguage = savedLanguage || browserLanguage || "ja";
+
+      languageButtons.forEach((button) => {
+        button.addEventListener("click", () => applyLanguage(button.dataset.lang));
+      });
+
+      applyLanguage(initialLanguage);
+    </script>
   </body>
 </html>
