@@ -256,28 +256,11 @@
         font-size: 1.15rem;
       }
 
-      .hero-actions,
-      .hero-signals {
+      .hero-actions {
         display: flex;
         flex-wrap: wrap;
         gap: 0.9rem;
-      }
-
-      .hero-actions {
         margin-top: 2rem;
-      }
-
-      .hero-signals {
-        margin-top: 1.75rem;
-      }
-
-      .signal {
-        border-radius: 999px;
-        border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.66);
-        padding: 0.7rem 1rem;
-        color: var(--muted);
-        font-size: 0.92rem;
       }
 
       .testimonial,
@@ -460,19 +443,6 @@
         max-width: 38rem;
       }
 
-      .cta-list {
-        display: grid;
-        gap: 0.9rem;
-        align-content: center;
-      }
-
-      .cta-point {
-        padding: 0.95rem 1rem;
-        border-radius: 1rem;
-        background: rgba(255, 255, 255, 0.08);
-        color: rgba(255, 255, 255, 0.82);
-      }
-
       .site-footer {
         padding: 1.4rem 0 2.5rem;
         color: var(--muted);
@@ -551,7 +521,6 @@
             >
               <a href="#services" data-i18n="navServices">支援内容</a>
               <a href="#company" data-i18n="navCompany">会社情報</a>
-              <a href="#leadership" data-i18n="navLeadership">代表について</a>
               <a href="#approach" data-i18n="navApproach">進め方</a>
               <a class="button button-secondary" href="#contact" data-i18n="navContact">お問い合わせ</a>
             </nav>
@@ -582,16 +551,6 @@
               <div class="hero-actions">
                 <a class="button button-primary" href="#contact" data-i18n="heroPrimaryCta">お問い合わせ</a>
                 <a class="button button-secondary" href="#services" data-i18n="heroSecondaryCta">支援内容を見る</a>
-              </div>
-              <div
-                class="hero-signals"
-                aria-label="主な支援領域"
-                data-i18n-attr="aria-label"
-                data-i18n-key="heroSignalsAriaLabel"
-              >
-                <span class="signal" data-i18n="signalOne">戦略立案から実装推進まで</span>
-                <span class="signal" data-i18n="signalTwo">業務変革と組織定着を支援</span>
-                <span class="signal" data-i18n="signalThree">顧客向けAI活用も対応</span>
               </div>
               <div
                 class="testimonials"
@@ -656,32 +615,6 @@
                   実装推進と定着まで支援します。
                 </p>
               </article>
-            </div>
-          </div>
-        </section>
-
-        <section id="leadership">
-          <div class="container">
-            <div class="founder-panel">
-              <div class="founder-mark">
-                <blockquote data-i18n="founderQuote">
-                  AI導入で重要なのは技術より実行力です。
-                </blockquote>
-              </div>
-              <div class="founder-copy">
-                <div class="section-kicker" data-i18n="leadershipKicker">代表について</div>
-                <h2 data-i18n="leadershipTitle">グローバル開発の経験をAI導入支援へ。</h2>
-                <p data-i18n="leadershipBodyOne">
-                  CEOのJonathanは数々の企業の社外CTO・VPoEとして組織を再定義し、
-                  プロダクトとエンジニアリングの両面で日本のテックカンパニーを率いてきました。
-                </p>
-                <p data-i18n="leadershipBodyTwo">
-                  MercariではDirector of Engineeringとして、米国向けのモバイルアプリとWebを担うチームを率いました。
-                </p>
-                <p data-i18n="leadershipBodyThree">
-                  20年以上の経歴をもとに、AI導入を実装と定着まで支援します。
-                </p>
-              </div>
             </div>
           </div>
         </section>
@@ -784,16 +717,6 @@
                 </div>
                 <h2 data-i18n="contactTitle">AI導入のご相談は<br />こちら。</h2>
               </div>
-              <div
-                class="cta-list"
-                aria-label="初回相談でよくあるテーマ"
-                data-i18n-attr="aria-label"
-                data-i18n-key="contactListAriaLabel"
-              >
-                <div class="cta-point" data-i18n="contactPointOne">どこから始めるべきか知りたい</div>
-                <div class="cta-point" data-i18n="contactPointTwo">PoCから本番導入へ進めたい</div>
-                <div class="cta-point" data-i18n="contactPointThree">組織に定着させたい</div>
-              </div>
             </div>
           </div>
         </section>
@@ -813,7 +736,6 @@
           languageSwitcherLabel: "言語切替",
           navAriaLabel: "グローバルナビゲーション",
           navServices: "支援内容",
-          navLeadership: "代表について",
           navApproach: "進め方",
           navContact: "お問い合わせ",
           heroEyebrow: "AI導入を構想で終わらせない",
@@ -822,10 +744,6 @@
             "Fortyone Agencyは”AIを導入して終わり”にしない。成果につながる運用まで支援します。",
           heroPrimaryCta: "お問い合わせ",
           heroSecondaryCta: "支援内容を見る",
-          heroSignalsAriaLabel: "主な支援領域",
-          signalOne: "戦略立案から実装推進まで",
-          signalTwo: "業務変革と組織定着を支援",
-          signalThree: "顧客向けAI活用も対応",
           testimonialsAriaLabel: "ご相談時によく伺うお悩み",
           testimonialOneQuote: "「AIに取り組みたいが、どこから着手すべきか決めきれない。」",
           testimonialOneDetail: "着手テーマの整理から支援します。",
@@ -841,15 +759,6 @@
           serviceTwoBody: "業務や顧客体験に合う形へ設計します。",
           serviceThreeTitle: "実装推進・定着支援",
           serviceThreeBody: "現場で使われ続ける運用まで支援します。",
-          founderQuote: "AI導入で重要なのは技術より実行力です。",
-          leadershipKicker: "代表について",
-          leadershipTitle: "グローバル開発の経験をAI導入支援へ。",
-          leadershipBodyOne:
-            "CEOのJonathanは日本のスタートアップからグローバル企業まで技術戦略の意思決定を支援するFractional CTOとして活動中。",
-          leadershipBodyTwo:
-            "メルカリではUS向けモバイル・Webプロダクト開発チームを率いるなど、日本・グローバル市場の両方で豊富な開発組織経験を持つ。",
-          leadershipBodyThree:
-            "20年以上の経験を持ち、AI技術を強みとして、長期的な事業価値につながる技術支援を提供します。",
           companyKicker: "会社情報",
           companyTitle: "Fortyone Agencyについて",
           companyBody:
@@ -888,7 +797,6 @@
           languageSwitcherLabel: "Language switcher",
           navAriaLabel: "Global navigation",
           navServices: "Services",
-          navLeadership: "Leadership",
           navApproach: "Approach",
           navCompany: "Company",
           navContact: "Contact",
@@ -898,10 +806,6 @@
             "Fortyone Agency supports companies with AI adoption from strategy and implementation through long-term adoption.",
           heroPrimaryCta: "Contact us",
           heroSecondaryCta: "View services",
-          heroSignalsAriaLabel: "Primary support areas",
-          signalOne: "From strategy design to implementation",
-          signalTwo: "Support for workflow change and adoption",
-          signalThree: "AI enablement for customer-facing products",
           testimonialsAriaLabel: "Common challenges we hear",
           testimonialOneQuote:
             "\"We want to work on AI, but we have not decided where to start.\"",
@@ -920,15 +824,6 @@
           serviceTwoBody: "We design AI initiatives to fit your operations and customer experience.",
           serviceThreeTitle: "Implementation and adoption support",
           serviceThreeBody: "We help drive execution and lasting adoption.",
-          founderQuote: "Successful AI adoption depends more on execution than technology.",
-          leadershipKicker: "Leadership",
-          leadershipTitle: "Global product and engineering experience applied to AI adoption.",
-          leadershipBodyOne:
-            "Jonathan, our CEO, has helped redefine organizations as an external CTO and VPoE, leading Japanese tech companies across both product and engineering.",
-          leadershipBodyTwo:
-            "At Mercari, he served as Director of Engineering and led teams responsible for the U.S. mobile app and web experience.",
-          leadershipBodyThree:
-            "With more than 20 years of experience, he supports AI adoption through implementation and sustained operational use.",
           companyKicker: "Company",
           companyTitle: "About Fortyone Agency",
           companyBody:
