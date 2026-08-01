@@ -8,18 +8,79 @@
       name="description"
       content="Fortyone Agencyは”AIを導入して終わり”にしない。成果につながる運用まで支援します。"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
-        --bg: #f3efe7;
-        --surface: rgba(255, 255, 255, 0.78);
-        --surface-strong: #fffdf8;
-        --ink: #1d1c1a;
-        --muted: #615b54;
-        --line: rgba(29, 28, 26, 0.12);
+        /* ---- Color ---------------------------------------------------- */
+        --bg: #faf8f4;
+        --bg-sunken: #f4f1ea;
+        --surface: #ffffff;
+        --ink: #0c343d;
+        --ink-soft: #2a4f57;
+        --muted: #6b7a7e;
+        --line: #e5e2d8;
+        --line-strong: #d5d1c4;
         --accent: #0a7c73;
-        --accent-soft: #d8efe9;
+        --accent-hover: #086b63;
+        --accent-soft: #e6f2f0;
         --accent-warm: #f1c67b;
-        --shadow: 0 24px 60px rgba(36, 31, 24, 0.12);
+
+        /* ---- Typography ------------------------------------------------ */
+        /* Geist covers Latin; Japanese glyphs fall through to Noto Sans JP.
+           Noto must precede the system JP faces or Chrome resolves kana/kanji
+           to Hiragino first and never requests the Noto subsets.
+           Liberation Sans mirrors the vectorized logo's grotesque on Linux. */
+        --font-sans:
+          "Geist", "Inter", "Liberation Sans", "Noto Sans JP",
+          "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo",
+          -apple-system, BlinkMacSystemFont, sans-serif;
+
+        --text-xs: 0.75rem;
+        --text-sm: 0.875rem;
+        --text-base: 1rem;
+        --text-lg: 1.125rem;
+        --text-xl: 1.25rem;
+        --text-2xl: 1.5rem;
+        --text-3xl: clamp(1.75rem, 3vw, 2rem);
+        --text-4xl: clamp(2rem, 4vw, 2.5rem);
+        --text-5xl: clamp(2.5rem, 5.5vw, 3.5rem);
+        --text-6xl: clamp(3rem, 7vw, 4.5rem);
+
+        --leading-tight: 1.15;
+        --leading-snug: 1.35;
+        --leading-normal: 1.7;
+
+        --tracking-tight: -0.03em;
+        --tracking-normal: 0;
+        --tracking-widest: 0.12em;
+
+        /* ---- Spacing (4px grid) ---------------------------------------- */
+        --space-1: 0.25rem;
+        --space-2: 0.5rem;
+        --space-3: 0.75rem;
+        --space-4: 1rem;
+        --space-5: 1.25rem;
+        --space-6: 1.5rem;
+        --space-8: 2rem;
+        --space-10: 2.5rem;
+        --space-12: 3rem;
+        --space-16: 4rem;
+        --space-20: 5rem;
+        --space-24: 6rem;
+
+        --section-y: clamp(4rem, 8vw, 6rem);
+
+        /* ---- Radius & elevation ---------------------------------------- */
+        --radius-sm: 4px;
+        --radius: 6px;
+        --radius-lg: 8px;
+        --shadow-sm: 0 1px 2px rgba(12, 52, 61, 0.04);
+        --shadow: 0 4px 16px rgba(12, 52, 61, 0.06);
       }
 
       * {
@@ -32,12 +93,13 @@
 
       body {
         margin: 0;
-        font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", "Avenir Next", sans-serif;
+        font-family: var(--font-sans);
+        font-size: var(--text-base);
+        line-height: var(--leading-normal);
         color: var(--ink);
-        background:
-          radial-gradient(circle at top left, rgba(241, 198, 123, 0.35), transparent 30%),
-          radial-gradient(circle at top right, rgba(10, 124, 115, 0.2), transparent 28%),
-          linear-gradient(180deg, #f8f4ec 0%, var(--bg) 100%);
+        background: var(--bg);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
       }
 
       a {
@@ -55,33 +117,8 @@
         overflow: hidden;
       }
 
-      .page-shell::before,
-      .page-shell::after {
-        content: "";
-        position: absolute;
-        border-radius: 999px;
-        filter: blur(20px);
-        pointer-events: none;
-      }
-
-      .page-shell::before {
-        top: 5rem;
-        right: -6rem;
-        width: 18rem;
-        height: 18rem;
-        background: rgba(10, 124, 115, 0.12);
-      }
-
-      .page-shell::after {
-        bottom: 10rem;
-        left: -5rem;
-        width: 16rem;
-        height: 16rem;
-        background: rgba(241, 198, 123, 0.18);
-      }
-
       .container {
-        width: min(1120px, calc(100% - 2rem));
+        width: min(1120px, calc(100% - var(--space-8)));
         margin: 0 auto;
       }
 
@@ -89,26 +126,23 @@
         position: sticky;
         top: 0;
         z-index: 20;
-        backdrop-filter: blur(20px);
-        background: rgba(248, 244, 236, 0.84);
-        border-bottom: 1px solid rgba(29, 28, 26, 0.08);
+        backdrop-filter: blur(12px);
+        background: rgba(250, 248, 244, 0.85);
+        border-bottom: 1px solid var(--line);
       }
 
       .nav {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 1rem;
-        min-height: 4.75rem;
+        gap: var(--space-4);
+        min-height: 4.5rem;
       }
 
       .brand {
         display: inline-flex;
         align-items: center;
-        gap: 0.9rem;
-        font-size: 0.95rem;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
+        gap: var(--space-4);
       }
 
       .brand img,
@@ -120,47 +154,55 @@
       .nav-links {
         display: flex;
         align-items: center;
-        gap: 1.25rem;
-        color: var(--muted);
-        font-size: 0.95rem;
+        gap: var(--space-6);
+        color: var(--ink-soft);
+        font-size: var(--text-sm);
+        font-weight: 500;
+      }
+
+      .nav-links a:not(.button) {
+        transition: color 160ms ease;
+      }
+
+      .nav-links a:not(.button):hover {
+        color: var(--accent);
       }
 
       .nav-actions {
         display: flex;
         align-items: center;
-        gap: 1rem;
+        gap: var(--space-5);
       }
 
       .language-switch {
         display: inline-flex;
         align-items: center;
-        gap: 0.25rem;
-        padding: 0.25rem;
-        border-radius: 999px;
+        gap: var(--space-1);
+        padding: var(--space-1);
+        border-radius: var(--radius);
         border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.72);
+        background: var(--surface);
       }
 
       .language-button {
         border: 0;
-        border-radius: 999px;
-        padding: 0.5rem 0.8rem;
+        border-radius: var(--radius-sm);
+        padding: var(--space-1) var(--space-3);
         background: transparent;
         color: var(--muted);
         font: inherit;
-        font-size: 0.86rem;
-        font-weight: 700;
-        letter-spacing: 0.04em;
+        font-size: var(--text-xs);
+        font-weight: 600;
+        letter-spacing: var(--tracking-widest);
         text-transform: uppercase;
         cursor: pointer;
         transition:
-          background-color 180ms ease,
-          color 180ms ease,
-          transform 180ms ease;
+          background-color 160ms ease,
+          color 160ms ease;
       }
 
       .language-button:hover {
-        transform: translateY(-1px);
+        color: var(--ink);
       }
 
       .language-button.is-active {
@@ -172,296 +214,437 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        gap: 0.5rem;
-        border-radius: 999px;
-        padding: 0.95rem 1.4rem;
+        gap: var(--space-2);
+        border-radius: var(--radius);
+        padding: var(--space-3) var(--space-6);
+        font-size: var(--text-sm);
         font-weight: 600;
+        line-height: 1.4;
+        white-space: nowrap;
         transition:
-          transform 180ms ease,
-          box-shadow 180ms ease,
-          background-color 180ms ease,
-          color 180ms ease;
-      }
-
-      .button:hover {
-        transform: translateY(-2px);
+          background-color 160ms ease,
+          border-color 160ms ease,
+          color 160ms ease;
       }
 
       .button-primary {
-        background: var(--ink);
+        background: var(--accent);
         color: #fff;
-        box-shadow: 0 12px 24px rgba(29, 28, 26, 0.18);
+        border: 1px solid var(--accent);
+      }
+
+      .button-primary:hover {
+        background: var(--accent-hover);
+        border-color: var(--accent-hover);
       }
 
       .button-secondary {
-        border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.52);
+        border: 1px solid var(--line-strong);
+        background: var(--surface);
+        color: var(--ink);
+      }
+
+      .button-secondary:hover {
+        border-color: var(--ink);
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
       }
 
       .hero {
-        padding: 5.5rem 0 4rem;
-      }
-
-      .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.6rem;
-        border-radius: 999px;
-        padding: 0.45rem 0.8rem;
-        background: rgba(255, 255, 255, 0.6);
-        border: 1px solid rgba(10, 124, 115, 0.14);
-        color: var(--accent);
-        font-size: 0.88rem;
-        font-weight: 700;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-      }
-
-      .eyebrow::before {
-        content: "";
-        width: 0.55rem;
-        height: 0.55rem;
-        border-radius: 999px;
-        background: var(--accent);
+        padding: clamp(4rem, 9vw, 7rem) 0 var(--section-y);
       }
 
       h1,
       h2,
       h3 {
         margin: 0;
-        font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
-        font-weight: 700;
-        letter-spacing: -0.02em;
+        font-weight: 600;
+        letter-spacing: var(--tracking-tight);
+        color: var(--ink);
       }
 
       h1 {
-        margin-top: 1.2rem;
-        font-size: clamp(3rem, 7vw, 5.6rem);
-        line-height: 0.94;
+        font-size: var(--text-6xl);
+        line-height: var(--leading-tight);
+        max-width: 20ch;
       }
 
       .hero-copy p,
       .section-intro p,
       .card p,
-      .founder-copy p,
       .timeline-item p,
       .cta-copy p {
         margin: 0;
         color: var(--muted);
-        line-height: 1.65;
-        font-size: 1.04rem;
+        line-height: var(--leading-normal);
+        font-size: var(--text-base);
       }
 
       .hero-copy .lead {
-        margin-top: 1.4rem;
-        max-width: 42rem;
-        font-size: 1.15rem;
+        margin-top: var(--space-6);
+        max-width: 46ch;
+        font-size: var(--text-lg);
       }
 
       .hero-actions {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.9rem;
-        margin-top: 2rem;
+        gap: var(--space-3);
+        margin-top: var(--space-10);
       }
 
       .testimonial,
       .card,
-      .founder-panel,
-      .timeline-item,
-      .cta-panel {
-        border: 1px solid rgba(29, 28, 26, 0.08);
+      .timeline-item {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
         background: var(--surface);
-        backdrop-filter: blur(12px);
-        box-shadow: var(--shadow);
+        box-shadow: var(--shadow-sm);
+        transition: border-color 160ms ease;
+      }
+
+      .testimonial:hover,
+      .card:hover,
+      .timeline-item:hover {
+        border-color: var(--line-strong);
       }
 
       .hero-copy {
-        max-width: 48rem;
+        max-width: 52rem;
       }
 
       .testimonials {
-        margin-top: 2.2rem;
+        margin-top: var(--space-16);
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1rem;
+        gap: var(--space-4);
       }
 
       .testimonial {
-        border-radius: 1.4rem;
-        padding: 1.35rem;
+        padding: var(--space-6);
       }
 
       .testimonial blockquote {
-        margin: 0 0 1rem;
-        font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
-        font-size: 1.3rem;
-        line-height: 1.2;
+        margin: 0 0 var(--space-4);
+        font-size: var(--text-lg);
+        font-weight: 500;
+        line-height: var(--leading-snug);
+        letter-spacing: var(--tracking-tight);
+        color: var(--ink);
       }
 
       .testimonial span {
         display: block;
         color: var(--muted);
-        font-size: 0.95rem;
+        font-size: var(--text-sm);
+        line-height: var(--leading-snug);
       }
 
       section {
-        padding: 2.5rem 0;
+        padding: var(--section-y) 0;
       }
 
       .section-head {
         display: grid;
-        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-        gap: 1.5rem;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: var(--space-10);
         align-items: end;
-        margin-bottom: 1.5rem;
+        margin-bottom: var(--space-12);
+      }
+
+      /* Single-column heads shouldn't leave a dead half-grid */
+      .section-head:has(.section-intro:only-child) {
+        grid-template-columns: 1fr;
       }
 
       .section-kicker {
+        display: block;
+        margin-bottom: var(--space-4);
         color: var(--accent);
-        font-size: 0.88rem;
-        font-weight: 700;
-        letter-spacing: 0.09em;
+        font-size: var(--text-xs);
+        font-weight: 600;
+        letter-spacing: var(--tracking-widest);
         text-transform: uppercase;
       }
 
       h2 {
-        font-size: clamp(2.1rem, 5vw, 3.35rem);
-        line-height: 1.02;
+        font-size: var(--text-4xl);
+        line-height: var(--leading-tight);
+        max-width: 24ch;
       }
 
       .card-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1.2rem;
+        gap: var(--space-4);
+        align-items: stretch;
       }
 
       .card {
-        border-radius: 1.5rem;
-        padding: 1.45rem;
+        padding: var(--space-8);
       }
 
       .card-number {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 2.3rem;
-        height: 2.3rem;
-        margin-bottom: 1rem;
-        border-radius: 999px;
+        width: 2rem;
+        height: 2rem;
+        margin-bottom: var(--space-6);
+        border-radius: var(--radius-sm);
         background: var(--accent-soft);
         color: var(--accent);
-        font-weight: 700;
+        font-size: var(--text-xs);
+        font-weight: 600;
       }
 
       .card h3 {
-        margin-bottom: 0.7rem;
-        font-size: 1.45rem;
-      }
-
-      .founder-panel {
-        display: grid;
-        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-        gap: 2rem;
-        border-radius: 2rem;
-        padding: 2rem;
-        background:
-          linear-gradient(135deg, rgba(255, 253, 248, 0.95), rgba(216, 239, 233, 0.7)),
-          var(--surface-strong);
-      }
-
-      .founder-mark {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 18rem;
-        border-radius: 1.5rem;
-        background:
-          linear-gradient(160deg, rgba(29, 28, 26, 0.96), rgba(10, 124, 115, 0.88));
-        color: #fff;
-        padding: 1.6rem;
-      }
-
-      .founder-mark blockquote {
-        margin: 0;
-        font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
-        font-size: clamp(1.8rem, 4vw, 2.6rem);
-        line-height: 1.06;
-      }
-
-      .founder-copy {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        justify-content: center;
+        margin-bottom: var(--space-3);
+        font-size: var(--text-xl);
+        line-height: var(--leading-snug);
       }
 
       .timeline {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 1rem;
+        gap: var(--space-4);
       }
 
       .timeline-item {
-        border-radius: 1.4rem;
-        padding: 1.35rem;
+        padding: var(--space-8);
       }
 
       .timeline-step {
-        display: inline-flex;
-        margin-bottom: 0.85rem;
+        display: block;
+        margin-bottom: var(--space-4);
         color: var(--accent);
-        font-weight: 700;
-        font-size: 0.9rem;
-        letter-spacing: 0.05em;
+        font-weight: 600;
+        font-size: var(--text-xs);
+        letter-spacing: var(--tracking-widest);
+      }
+
+      .timeline-item h3 {
+        margin-bottom: var(--space-3);
+        font-size: var(--text-lg);
+        line-height: var(--leading-snug);
+      }
+
+      .clients {
+        padding: var(--space-16) 0;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        background: var(--bg-sunken);
+      }
+
+      .clients-label {
+        margin-bottom: var(--space-10);
+        text-align: center;
+        color: var(--muted);
+        font-size: var(--text-xs);
+        font-weight: 600;
+        letter-spacing: var(--tracking-widest);
         text-transform: uppercase;
       }
 
-      .cta {
-        padding-bottom: 5rem;
+      .marquee {
+        --fade: 8rem;
+        --gap: 4.5rem;
+        position: relative;
+        display: flex;
+        overflow: hidden;
+        -webkit-mask-image: linear-gradient(
+          90deg,
+          transparent,
+          #000 var(--fade),
+          #000 calc(100% - var(--fade)),
+          transparent
+        );
+        mask-image: linear-gradient(
+          90deg,
+          transparent,
+          #000 var(--fade),
+          #000 calc(100% - var(--fade)),
+          transparent
+        );
+      }
+
+      .marquee-track {
+        display: flex;
+        flex-shrink: 0;
+        align-items: center;
+        gap: var(--gap);
+        padding-right: var(--gap);
+        animation: marquee-scroll 38s linear infinite;
+      }
+
+      .marquee:hover .marquee-track {
+        animation-play-state: paused;
+      }
+
+      .marquee-track img {
+        width: auto;
+        height: auto;
+        max-height: 2.25rem;
+        max-width: 10rem;
+        object-fit: contain;
+        filter: grayscale(1);
+        opacity: 0.5;
+        transition:
+          filter 240ms ease,
+          opacity 240ms ease;
+      }
+
+      .marquee-track img:hover {
+        filter: grayscale(0);
+        opacity: 1;
+      }
+
+      @keyframes marquee-scroll {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-100%);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .marquee-track {
+          animation: none;
+        }
+
+        .marquee {
+          overflow-x: auto;
+        }
       }
 
       .cta-panel {
         display: grid;
-        grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
-        gap: 1.5rem;
-        border-radius: 2rem;
-        padding: 2rem;
-        background:
-          linear-gradient(135deg, rgba(29, 28, 26, 0.96), rgba(29, 28, 26, 0.82)),
-          var(--ink);
+        grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.7fr);
+        gap: var(--space-10);
+        align-items: center;
+        border-radius: var(--radius-lg);
+        padding: var(--space-16);
+        background: var(--ink);
         color: #fff;
       }
 
       .cta-copy {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        gap: 0.85rem;
+        gap: var(--space-4);
+      }
+
+      .cta-copy h2 {
+        color: #fff;
+        font-size: var(--text-3xl);
       }
 
       .cta-copy p {
-        color: rgba(255, 255, 255, 0.72);
-        max-width: 38rem;
+        color: rgba(255, 255, 255, 0.7);
+        max-width: 44ch;
+      }
+
+      .cta-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: var(--space-3);
+      }
+
+      .cta-panel .button-primary {
+        background: #fff;
+        border-color: #fff;
+        color: var(--ink);
+      }
+
+      .cta-panel .button-primary:hover {
+        background: rgba(255, 255, 255, 0.88);
+        border-color: rgba(255, 255, 255, 0.88);
       }
 
       .site-footer {
-        padding: 1.4rem 0 2.5rem;
+        padding: var(--space-16) 0 var(--space-8);
+        border-top: 1px solid var(--line);
+        background: var(--bg-sunken);
         color: var(--muted);
-        font-size: 0.92rem;
+        font-size: var(--text-sm);
+      }
+
+      .footer-top {
+        display: grid;
+        grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+        gap: var(--space-10);
+        padding-bottom: var(--space-12);
+      }
+
+      .footer-name {
+        font-size: var(--text-base);
+        font-weight: 600;
+        letter-spacing: var(--tracking-tight);
+        color: var(--ink);
+      }
+
+      .footer-address {
+        margin-top: var(--space-4);
+        font-style: normal;
+        line-height: var(--leading-snug);
+      }
+
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-2);
+      }
+
+      .footer-links a {
+        transition: color 160ms ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--accent);
+      }
+
+      .footer-bottom {
+        padding-top: var(--space-6);
+        border-top: 1px solid var(--line);
+        font-size: var(--text-xs);
       }
 
       @media (max-width: 980px) {
         .section-head,
-        .testimonials,
-        .founder-panel,
-        .cta-panel,
+        .cta-panel {
+          grid-template-columns: 1fr;
+          align-items: start;
+        }
+
+        .section-head {
+          gap: var(--space-4);
+        }
+
         .timeline {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .testimonials,
+        .card-grid {
           grid-template-columns: 1fr;
         }
 
-        .card-grid {
-          grid-template-columns: 1fr;
+        .cta-panel {
+          padding: var(--space-10);
+        }
+
+        .cta-actions {
+          justify-content: flex-start;
+        }
+
+        .footer-top {
+          gap: var(--space-8);
         }
       }
 
@@ -470,33 +653,43 @@
           flex-direction: column;
           align-items: flex-start;
           justify-content: center;
-          padding: 1rem 0;
+          padding: var(--space-4) 0;
+          gap: var(--space-4);
         }
 
         .nav-actions {
           width: 100%;
           flex-direction: column;
           align-items: flex-start;
+          gap: var(--space-4);
         }
 
         .nav-links {
           flex-wrap: wrap;
         }
 
-        .hero {
-          padding-top: 4rem;
+        .timeline {
+          grid-template-columns: 1fr;
         }
 
-        .testimonial,
-        .card,
-        .founder-panel,
-        .timeline-item,
-        .cta-panel {
-          border-radius: 1.5rem;
+        .brand img,
+        .brand-logo {
+          width: 150px;
         }
 
-        .brand img {
-          width: 160px;
+        .marquee {
+          --fade: 2.5rem;
+          --gap: 2.75rem;
+        }
+
+        .marquee-track img {
+          max-height: 1.9rem;
+          max-width: 8rem;
+        }
+
+        .footer-top {
+          grid-template-columns: 1fr;
+          gap: var(--space-8);
         }
       }
     </style>
@@ -524,7 +717,14 @@
               <a href="#services" data-i18n="navServices">支援内容</a>
               <a href="#company" data-i18n="navCompany">会社情報</a>
               <a href="#approach" data-i18n="navApproach">進め方</a>
-              <a class="button button-secondary" href="#contact" data-i18n="navContact">お問い合わせ</a>
+              <a
+                class="button button-secondary"
+                href="https://forms.gle/3dkUV9m5ZY8dhi1JA"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-i18n="navContact"
+                >お問い合わせ</a
+              >
             </nav>
             <div
               class="language-switch"
@@ -550,8 +750,14 @@
                 戦略整理から実装、定着までを支援します。
               </p>
               <div class="hero-actions">
-                <a class="button button-primary" href="#contact" data-i18n="heroPrimaryCta">お問い合わせ</a>
-                <a class="button button-secondary" href="#services" data-i18n="heroSecondaryCta">支援内容を見る</a>
+                <a
+                  class="button button-primary"
+                  href="https://forms.gle/3dkUV9m5ZY8dhi1JA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-i18n="heroPrimaryCta"
+                  >お問い合わせ</a
+                >
               </div>
               <div
                 class="testimonials"
@@ -582,15 +788,40 @@
           </div>
         </section>
 
+        <section class="clients" aria-labelledby="clients-label">
+          <div class="container">
+            <div class="clients-label" id="clients-label" data-i18n="clientsLabel">
+              ご支援企業
+            </div>
+            <div class="marquee">
+              <div class="marquee-track">
+                <img src="logos/mercari.png" alt="Mercari" loading="lazy" />
+                <img src="logos/rakuten.png" alt="Rakuten" loading="lazy" />
+                <img src="logos/drivemode.png" alt="Drivemode" loading="lazy" />
+                <img src="logos/mybest.png" alt="mybest" loading="lazy" />
+                <img src="logos/raksul.png" alt="RAKSUL" loading="lazy" />
+                <img src="logos/loov.png" alt="LOOV Inc" loading="lazy" />
+                <img src="logos/canary.png" alt="Canary" loading="lazy" />
+              </div>
+              <div class="marquee-track" aria-hidden="true">
+                <img src="logos/mercari.png" alt="" loading="lazy" />
+                <img src="logos/rakuten.png" alt="" loading="lazy" />
+                <img src="logos/drivemode.png" alt="" loading="lazy" />
+                <img src="logos/mybest.png" alt="" loading="lazy" />
+                <img src="logos/raksul.png" alt="" loading="lazy" />
+                <img src="logos/loov.png" alt="" loading="lazy" />
+                <img src="logos/canary.png" alt="" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section id="services">
           <div class="container">
             <div class="section-head">
               <div class="section-intro">
                 <div class="section-kicker" data-i18n="servicesKicker">支援内容</div>
                 <h2 data-i18n="servicesTitle">AI導入をプランニングから実装まで支援します。</h2>
-              </div>
-              <div class="section-intro">
-            
               </div>
             </div>
 
@@ -627,11 +858,6 @@
                 <div class="section-kicker" data-i18n="companyKicker">会社情報</div>
                 <h2 data-i18n="companyTitle">Fortyone Agencyについて</h2>
               </div>
-              <div class="section-intro">
-                <p data-i18n="companyBody">
-                  私たちは、AIの実装と運用までを見据えた支援で、企業が現実の成果を出せるよう伴走します。
-                </p>
-              </div>
             </div>
 
             <div class="card-grid">
@@ -666,9 +892,6 @@
               <div class="section-intro">
                 <div class="section-kicker" data-i18n="approachKicker">進め方</div>
                 <h2 data-i18n="approachTitle">シンプル、スマートに実装まで持っていく。</h2>
-              </div>
-              <div class="section-intro">
-                
               </div>
             </div>
 
@@ -718,13 +941,54 @@
                 </div>
                 <h2 data-i18n="contactTitle">AI導入のご相談は<br />こちら。</h2>
               </div>
+              <div class="cta-actions">
+                <a
+                  class="button button-primary"
+                  href="https://forms.gle/3dkUV9m5ZY8dhi1JA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-i18n="contactCta"
+                  >お問い合わせ</a
+                >
+              </div>
             </div>
           </div>
         </section>
       </main>
 
       <footer class="site-footer">
-        <div class="container">Fortyone Agency LLC</div>
+        <div class="container">
+          <div class="footer-top">
+            <div class="footer-brand">
+              <div class="footer-name">Fortyone Agency LLC</div>
+              <address class="footer-address" data-i18n="footerAddress">
+                〒150-0043<br />東京都渋谷区道玄坂1丁目10番8号<br />渋谷道玄坂東急ビル2F−C
+              </address>
+            </div>
+
+            <div class="footer-col">
+              <nav class="footer-links" aria-labelledby="footer-nav-label">
+                <span id="footer-nav-label" hidden data-i18n="footerNavLabel">フッターナビゲーション</span>
+                <a
+                  href="https://forms.gle/3dkUV9m5ZY8dhi1JA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-i18n="footerContactLink"
+                  >お問い合わせ</a
+                >
+                <a href="#services" data-i18n="navServices">支援内容</a>
+                <a href="#company" data-i18n="navCompany">会社情報</a>
+                <a href="#approach" data-i18n="navApproach">進め方</a>
+              </nav>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <small data-i18n="footerCopyright"
+              >© 2026 Fortyone Agency LLC. All rights reserved.</small
+            >
+          </div>
+        </div>
       </footer>
     </div>
     <script>
@@ -737,14 +1001,13 @@
           languageSwitcherLabel: "言語切替",
           navAriaLabel: "グローバルナビゲーション",
           navServices: "支援内容",
+          navCompany: "会社情報",
           navApproach: "進め方",
           navContact: "お問い合わせ",
-          heroEyebrow: "AI導入を構想で終わらせない",
           heroTitle: "AI導入の構想を、現場で使える仕組みへ。",
           heroLead:
             "Fortyone Agencyは”AIを導入して終わり”にしない。成果につながる運用まで支援します。",
           heroPrimaryCta: "お問い合わせ",
-          heroSecondaryCta: "支援内容を見る",
           testimonialsAriaLabel: "ご相談時によく伺うお悩み",
           testimonialOneQuote: "「AIに取り組みたいが、どこから着手すべきか決めきれない。」",
           testimonialOneDetail: "着手テーマの整理から支援します。",
@@ -752,6 +1015,7 @@
           testimonialTwoDetail: "体制設計と実行計画を整えます。",
           testimonialThreeQuote: "「PoCは実施したが、本番運用や社内定着まで進まない。」",
           testimonialThreeDetail: "本番運用から社内定着まで完結させます。",
+          clientsLabel: "ご支援企業",
           servicesKicker: "支援内容",
           servicesTitle: "AI導入をプランニングから実装まで支援します。",
           serviceOneTitle: "AI導入戦略の整理",
@@ -762,8 +1026,6 @@
           serviceThreeBody: "現場で使われ続ける運用まで支援します。",
           companyKicker: "会社情報",
           companyTitle: "Fortyone Agencyについて",
-          companyBody:
-            "私たちは、AIの実装と運用までを見据えた支援で、企業が現実の成果を出せるよう伴走します。",
           companyOneTitle: "設立と所在地",
           companyOneBody:
             "Fortyone Agency LLCは東京を拠点に、国内外の企業へAI導入支援を提供しています。",
@@ -785,6 +1047,12 @@
           approachFourBody: "運用につながる実行まで支援します。",
           contactKicker: "お問い合わせ",
           contactTitle: "AI導入のご相談は<br />こちら。",
+          contactCta: "お問い合わせ",
+          footerAddress:
+            "〒150-0043<br />東京都渋谷区道玄坂1丁目10番8号<br />渋谷道玄坂東急ビル2F−C",
+          footerContactLink: "お問い合わせ",
+          footerNavLabel: "フッターナビゲーション",
+          footerCopyright: "© 2026 Fortyone Agency LLC. All rights reserved.",
           contactListAriaLabel: "初回相談でよくあるテーマ",
           contactPointOne: "どこから始めるべきか知りたい",
           contactPointTwo: "PoCから本番導入へ進めたい",
@@ -805,7 +1073,6 @@
           heroLead:
             "Fortyone Agency supports companies with AI adoption from strategy and implementation through long-term adoption.",
           heroPrimaryCta: "Contact us",
-          heroSecondaryCta: "View services",
           testimonialsAriaLabel: "Common challenges we hear",
           testimonialOneQuote:
             "\"We want to work on AI, but we have not decided where to start.\"",
@@ -816,6 +1083,7 @@
           testimonialThreeQuote:
             "\"We ran a PoC, but it has not reached production or internal adoption.\"",
           testimonialThreeDetail: "We support rollout all the way to adoption.",
+          clientsLabel: "Companies we've worked with",
           servicesKicker: "Services",
           servicesTitle: "Support for AI adoption from planning through implementation.",
           serviceOneTitle: "AI strategy definition",
@@ -826,8 +1094,6 @@
           serviceThreeBody: "We help drive execution and lasting adoption.",
           companyKicker: "Company",
           companyTitle: "About Fortyone Agency",
-          companyBody:
-            "We support companies through AI implementation and long-term adoption with practical, business-focused guidance.",
           companyOneTitle: "Founded and based in Tokyo",
           companyOneBody:
             "Fortyone Agency LLC is headquartered in Tokyo and works with companies in Japan and abroad.",
@@ -849,6 +1115,12 @@
           approachFourBody: "We help your team start using it in practice.",
           contactKicker: "Contact",
           contactTitle: "Let's talk about<br />your AI initiative.",
+          contactCta: "Contact us",
+          footerAddress:
+            "Shibuya Dogenzaka Tokyu Building 2F-C<br />Dogenzaka 1-10-8<br />Shibuya-ku, Tokyo 150-0043<br />Japan",
+          footerContactLink: "Contact Us",
+          footerNavLabel: "Footer navigation",
+          footerCopyright: "© 2026 Fortyone Agency LLC. All rights reserved.",
           contactListAriaLabel: "Common topics for an initial conversation",
           contactPointOne: "Figure out where to begin",
           contactPointTwo: "Move from PoC to production",
