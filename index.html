@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fortyone Agency | AI導入を構想から実装まで支援</title>
+    <title>Fortyone Agency | 技術戦略・開発組織づくりの支援</title>
     <meta
       name="description"
-      content="Fortyone Agencyは”AIを導入して終わり”にしない。成果につながる運用まで支援します。"
+      content="Fortyone Agencyは、技術戦略から開発組織づくり、実装までを一貫して支援するソフトウェアコンサルティングです。東京拠点。"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -275,7 +275,6 @@
       .hero-copy p,
       .section-intro p,
       .card p,
-      .timeline-item p,
       .cta-copy p {
         margin: 0;
         color: var(--muted);
@@ -296,9 +295,7 @@
         margin-top: var(--space-10);
       }
 
-      .testimonial,
-      .card,
-      .timeline-item {
+      .card {
         border: 1px solid var(--line);
         border-radius: var(--radius);
         background: var(--surface);
@@ -306,41 +303,12 @@
         transition: border-color 160ms ease;
       }
 
-      .testimonial:hover,
-      .card:hover,
-      .timeline-item:hover {
+      .card:hover {
         border-color: var(--line-strong);
       }
 
       .hero-copy {
         max-width: 52rem;
-      }
-
-      .testimonials {
-        margin-top: var(--space-16);
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: var(--space-4);
-      }
-
-      .testimonial {
-        padding: var(--space-6);
-      }
-
-      .testimonial blockquote {
-        margin: 0 0 var(--space-4);
-        font-size: var(--text-lg);
-        font-weight: 500;
-        line-height: var(--leading-snug);
-        letter-spacing: var(--tracking-tight);
-        color: var(--ink);
-      }
-
-      .testimonial span {
-        display: block;
-        color: var(--muted);
-        font-size: var(--text-sm);
-        line-height: var(--leading-snug);
       }
 
       section {
@@ -407,29 +375,108 @@
         line-height: var(--leading-snug);
       }
 
-      .timeline {
+      .case-grid {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: var(--space-4);
       }
 
-      .timeline-item {
+      .case {
+        display: flex;
+        flex-direction: column;
         padding: var(--space-8);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--surface);
+        box-shadow: var(--shadow-sm);
+        transition: border-color 160ms ease;
       }
 
-      .timeline-step {
-        display: block;
-        margin-bottom: var(--space-4);
-        color: var(--accent);
+      .case:hover {
+        border-color: var(--line-strong);
+      }
+
+      .case-metric {
+        font-size: var(--text-4xl);
         font-weight: 600;
+        line-height: 1;
+        letter-spacing: var(--tracking-tight);
+        color: var(--accent);
+      }
+
+      .case-metric-label {
+        margin-top: var(--space-2);
+        font-size: var(--text-sm);
+        font-weight: 500;
+        color: var(--ink);
+      }
+
+      .case-meta {
+        margin: var(--space-5) 0 var(--space-3);
+        padding-top: var(--space-5);
+        border-top: 1px solid var(--line);
         font-size: var(--text-xs);
         letter-spacing: var(--tracking-widest);
+        text-transform: uppercase;
+        color: var(--muted);
       }
 
-      .timeline-item h3 {
-        margin-bottom: var(--space-3);
-        font-size: var(--text-lg);
+      .case p {
+        margin: 0;
+        color: var(--muted);
+        font-size: var(--text-sm);
+        line-height: var(--leading-normal);
+      }
+
+      .profile {
+        margin-top: var(--space-4);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--surface);
+        box-shadow: var(--shadow-sm);
+        overflow: hidden;
+      }
+
+      .profile dl {
+        margin: 0;
+        display: grid;
+        grid-template-columns: minmax(140px, 0.25fr) minmax(0, 1fr);
+      }
+
+      .profile dt,
+      .profile dd {
+        margin: 0;
+        padding: var(--space-5) var(--space-8);
+        border-top: 1px solid var(--line);
+      }
+
+      .profile dt {
+        font-size: var(--text-sm);
+        font-weight: 600;
+        color: var(--ink);
+        background: var(--bg-sunken);
+      }
+
+      .profile dd {
+        font-size: var(--text-sm);
+        color: var(--muted);
         line-height: var(--leading-snug);
+      }
+
+      .profile-link {
+        color: var(--accent);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+        transition: color 160ms ease;
+      }
+
+      .profile-link:hover {
+        color: var(--accent-hover);
+      }
+
+      .profile dt:first-of-type,
+      .profile dt:first-of-type + dd {
+        border-top: 0;
       }
 
       .clients {
@@ -626,12 +673,8 @@
           gap: var(--space-4);
         }
 
-        .timeline {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .testimonials,
-        .card-grid {
+        .card-grid,
+        .case-grid {
           grid-template-columns: 1fr;
         }
 
@@ -668,10 +711,6 @@
           flex-wrap: wrap;
         }
 
-        .timeline {
-          grid-template-columns: 1fr;
-        }
-
         .brand img,
         .brand-logo {
           width: 150px;
@@ -690,6 +729,23 @@
         .footer-top {
           grid-template-columns: 1fr;
           gap: var(--space-8);
+        }
+
+        .profile dl {
+          grid-template-columns: 1fr;
+        }
+
+        .profile dt {
+          padding-bottom: var(--space-2);
+        }
+
+        .profile dd {
+          border-top: 0;
+          padding-top: 0;
+        }
+
+        .profile dt:first-of-type + dd {
+          border-top: 0;
         }
       }
     </style>
@@ -715,8 +771,8 @@
               data-i18n-key="navAriaLabel"
             >
               <a href="#services" data-i18n="navServices">支援内容</a>
+              <a href="#cases" data-i18n="navCases">導入事例</a>
               <a href="#company" data-i18n="navCompany">会社情報</a>
-              <a href="#approach" data-i18n="navApproach">進め方</a>
               <a
                 class="button button-secondary"
                 href="https://forms.gle/3dkUV9m5ZY8dhi1JA"
@@ -744,10 +800,9 @@
         <section class="hero">
           <div class="container">
             <div class="hero-copy">
-              <h1 data-i18n="heroTitle">AI導入の構想を、現場で使える仕組みへ。</h1>
+              <h1 data-i18n="heroTitle">開発組織を強くし、プロダクトを前に進める。</h1>
               <p class="lead" data-i18n="heroLead">
-                Fortyone AgencyはAI導入に悩む企業に対し、
-                戦略整理から実装、定着までを支援します。
+                国内大手テック企業で開発組織を率い、スタートアップの立ち上げにも携わってきた知見をもとに、技術戦略から組織設計、実装まで一貫して支援します。
               </p>
               <div class="hero-actions">
                 <a
@@ -759,31 +814,6 @@
                   >お問い合わせ</a
                 >
               </div>
-              <div
-                class="testimonials"
-                aria-label="ご相談時によく伺うお悩み"
-                data-i18n-attr="aria-label"
-                data-i18n-key="testimonialsAriaLabel"
-              >
-                <article class="testimonial">
-                  <blockquote data-i18n="testimonialOneQuote">
-                    「AIに取り組みたいが、どこから着手すべきか決めきれない。」
-                  </blockquote>
-                  <span data-i18n="testimonialOneDetail">着手テーマの整理から支援します。</span>
-                </article>
-                <article class="testimonial">
-                  <blockquote data-i18n="testimonialTwoQuote">
-                    「推進したいが、現場で回る形に落とし込めていない。」
-                  </blockquote>
-                  <span data-i18n="testimonialTwoDetail">体制設計と実行計画を整えます。</span>
-                </article>
-                <article class="testimonial">
-                  <blockquote data-i18n="testimonialThreeQuote">
-                    「PoCは実施したが、本番運用や社内定着まで進まない。」
-                  </blockquote>
-                  <span data-i18n="testimonialThreeDetail">本番導入と定着まで伴走します。</span>
-                </article>
-              </div>
             </div>
           </div>
         </section>
@@ -791,7 +821,7 @@
         <section class="clients" aria-labelledby="clients-label">
           <div class="container">
             <div class="clients-label" id="clients-label" data-i18n="clientsLabel">
-              ご支援企業
+              在籍・支援した企業
             </div>
             <div class="marquee">
               <div class="marquee-track">
@@ -821,30 +851,81 @@
             <div class="section-head">
               <div class="section-intro">
                 <div class="section-kicker" data-i18n="servicesKicker">支援内容</div>
-                <h2 data-i18n="servicesTitle">AI導入をプランニングから実装まで支援します。</h2>
+                <h2 data-i18n="servicesTitle">技術と組織の両面から、開発を前に進めます。</h2>
               </div>
             </div>
 
             <div class="card-grid">
               <article class="card">
                 <div class="card-number">01</div>
-                <h3 data-i18n="serviceOneTitle">AI導入戦略の整理</h3>
+                <h3 data-i18n="serviceOneTitle">技術戦略・アーキテクチャ</h3>
                 <p data-i18n="serviceOneBody">
-                  取り組むべきテーマと優先順位を整理します。
+                  技術選定、システム設計、レガシー刷新の方針を整理し、意思決定を支えます。
                 </p>
               </article>
               <article class="card">
                 <div class="card-number">02</div>
-                <h3 data-i18n="serviceTwoTitle">業務・プロダクト設計</h3>
+                <h3 data-i18n="serviceTwoTitle">開発組織づくり</h3>
                 <p data-i18n="serviceTwoBody">
-                  業務や顧客体験に合う形へ設計します。
+                  チーム構成、採用、育成、開発プロセスの設計。分散チームの立ち上げも支援します。
                 </p>
               </article>
               <article class="card">
                 <div class="card-number">03</div>
-                <h3 data-i18n="serviceThreeTitle">実装推進・定着支援</h3>
+                <h3 data-i18n="serviceThreeTitle">実装支援</h3>
                 <p data-i18n="serviceThreeBody">
-                  実装推進と定着まで支援します。
+                  Web・モバイル・クラウド基盤に加え、AI・LLMを活用した機能の開発まで、必要に応じて手を動かしながら支援します。
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="cases">
+          <div class="container">
+            <div class="section-head">
+              <div class="section-intro">
+                <div class="section-kicker" data-i18n="casesKicker">実績</div>
+                <h2 data-i18n="casesTitle">組織とプロダクト、両面での実績。</h2>
+              </div>
+            </div>
+
+            <div class="case-grid">
+              <article class="case">
+                <div class="case-metric" data-i18n="caseOneMetric">480万+</div>
+                <div class="case-metric-label" data-i18n="caseOneMetricLabel">
+                  月間アクティブユーザー
+                </div>
+                <div class="case-meta" data-i18n="caseOneMeta">
+                  大手フリマアプリ ・ Web / モバイル
+                </div>
+                <p data-i18n="caseOneBody">
+                  React・Next.js・GraphQLでWebサイトを刷新。モバイルアプリもReact
+                  Nativeで全面的に作り直しました。
+                </p>
+              </article>
+              <article class="case">
+                <div class="case-metric" data-i18n="caseTwoMetric">+25%</div>
+                <div class="case-metric-label" data-i18n="caseTwoMetricLabel">
+                  開発組織の拡大
+                </div>
+                <div class="case-meta" data-i18n="caseTwoMeta">
+                  モビリティ ・ 組織設計
+                </div>
+                <p data-i18n="caseTwoBody">
+                  大手自動車メーカー向け車載ソフトウェアの開発組織を再編・拡大。開発プロセスの近代化も進めました。
+                </p>
+              </article>
+              <article class="case">
+                <div class="case-metric" data-i18n="caseThreeMetric">3拠点</div>
+                <div class="case-metric-label" data-i18n="caseThreeMetricLabel">
+                  分散チームの統括
+                </div>
+                <div class="case-meta" data-i18n="caseThreeMeta">
+                  大手EC ・ プラットフォーム開発
+                </div>
+                <p data-i18n="caseThreeBody">
+                  日本・フランス・カナダの開発チームを統括。レガシー環境をDocker・Kubernetesへ移行しました。
                 </p>
               </article>
             </div>
@@ -863,67 +944,52 @@
             <div class="card-grid">
               <article class="card">
                 <div class="card-number">01</div>
-                <h3 data-i18n="companyOneTitle">設立と所在地</h3>
+                <h3 data-i18n="companyOneTitle">25年以上の開発経験</h3>
                 <p data-i18n="companyOneBody">
-                  Fortyone Agency LLCは東京を拠点に、国内外の企業へAI導入支援を提供しています。
+                  国内大手テック企業やモビリティ企業で、エンジニアリング責任者として開発組織を率いてきました。
                 </p>
               </article>
               <article class="card">
                 <div class="card-number">02</div>
-                <h3 data-i18n="companyTwoTitle">ミッション</h3>
+                <h3 data-i18n="companyTwoTitle">経営と現場、両方の視点</h3>
                 <p data-i18n="companyTwoBody">
-                  技術だけでなく、現場で使われる仕組みをつくり、成果につながるAI活用を実現します。
+                  組織設計から実装まで一貫して関わり、意思決定と現場の実行をつなぎます。
                 </p>
               </article>
               <article class="card">
                 <div class="card-number">03</div>
-                <h3 data-i18n="companyThreeTitle">価値観</h3>
+                <h3 data-i18n="companyThreeTitle">知見の共有</h3>
                 <p data-i18n="companyThreeBody">
-                  実行力、現場重視、継続的な価値提供を大切にしています。
+                  代表者は開発組織づくりに関する著書を持ち、国内スタートアップの技術顧問も務めています。
                 </p>
               </article>
             </div>
-          </div>
-        </section>
 
-        <section id="approach">
-          <div class="container">
-            <div class="section-head">
-              <div class="section-intro">
-                <div class="section-kicker" data-i18n="approachKicker">進め方</div>
-                <h2 data-i18n="approachTitle">シンプル、スマートに実装まで持っていく。</h2>
-              </div>
-            </div>
+            <div class="profile">
+              <dl>
+                <dt data-i18n="profileNameLabel">会社名</dt>
+                <dd data-i18n="profileName">Fortyone Agency LLC</dd>
 
-            <div class="timeline">
-              <article class="timeline-item">
-                <span class="timeline-step">01</span>
-                <h3 data-i18n="approachOneTitle">現状把握</h3>
-                <p data-i18n="approachOneBody">
-                  課題と制約を整理します。
-                </p>
-              </article>
-              <article class="timeline-item">
-                <span class="timeline-step">02</span>
-                <h3 data-i18n="approachTwoTitle">優先順位設計</h3>
-                <p data-i18n="approachTwoBody">
-                  取り組む順番を決めます。
-                </p>
-              </article>
-              <article class="timeline-item">
-                <span class="timeline-step">03</span>
-                <h3 data-i18n="approachThreeTitle">設計・実装推進</h3>
-                <p data-i18n="approachThreeBody">
-                  実行できる形へ落とし込みます。
-                </p>
-              </article>
-              <article class="timeline-item">
-                <span class="timeline-step">04</span>
-                <h3 data-i18n="approachFourTitle">定着支援</h3>
-                <p data-i18n="approachFourBody">
-                  定着まで支援します。
-                </p>
-              </article>
+                <dt data-i18n="profileFoundedLabel">設立</dt>
+                <dd data-i18n="profileFounded">2024年7月1日</dd>
+
+                <dt data-i18n="profileAddressLabel">所在地</dt>
+                <dd data-i18n="profileAddress">
+                  〒150-0043<br />東京都渋谷区道玄坂1丁目10番8号 渋谷道玄坂東急ビル2F−C
+                </dd>
+
+                <dt data-i18n="profileBookLabel">著書</dt>
+                <dd data-i18n="profileBook">
+                  『<a
+                    class="profile-link"
+                    href="https://www.fromculturetocode.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >From Culture to Code: Leading Software Engineering Teams
+                    Effectively</a
+                  >』Apress、2025年
+                </dd>
+              </dl>
             </div>
           </div>
         </section>
@@ -939,7 +1005,7 @@
                 >
                   お問い合わせ
                 </div>
-                <h2 data-i18n="contactTitle">AI導入のご相談は<br />こちら。</h2>
+                <h2 data-i18n="contactTitle">開発組織のご相談は<br />こちら。</h2>
               </div>
               <div class="cta-actions">
                 <a
@@ -977,8 +1043,8 @@
                   >お問い合わせ</a
                 >
                 <a href="#services" data-i18n="navServices">支援内容</a>
+                <a href="#cases" data-i18n="navCases">導入事例</a>
                 <a href="#company" data-i18n="navCompany">会社情報</a>
-                <a href="#approach" data-i18n="navApproach">進め方</a>
               </nav>
             </div>
           </div>
@@ -994,59 +1060,72 @@
     <script>
       const translations = {
         ja: {
-          pageTitle: "Fortyone Agency | AI導入を構想から実装まで支援",
+          pageTitle: "Fortyone Agency | 技術戦略・開発組織づくりの支援",
           metaDescription:
-            "Fortyone Agencyは企業のAI導入を戦略整理から実装・定着まで支援します。",
+            "Fortyone Agencyは、技術戦略から開発組織づくり、実装までを一貫して支援するソフトウェアコンサルティングです。東京拠点。",
           brandAriaLabel: "Fortyone Agency home",
           languageSwitcherLabel: "言語切替",
           navAriaLabel: "グローバルナビゲーション",
           navServices: "支援内容",
+          navCases: "導入事例",
           navCompany: "会社情報",
-          navApproach: "進め方",
           navContact: "お問い合わせ",
-          heroTitle: "AI導入の構想を、現場で使える仕組みへ。",
+          heroTitle: "開発組織を強くし、プロダクトを前に進める。",
           heroLead:
-            "Fortyone Agencyは”AIを導入して終わり”にしない。成果につながる運用まで支援します。",
+            "国内大手テック企業で開発組織を率い、スタートアップの立ち上げにも携わってきた知見をもとに、技術戦略から組織設計、実装まで一貫して支援します。",
           heroPrimaryCta: "お問い合わせ",
-          testimonialsAriaLabel: "ご相談時によく伺うお悩み",
-          testimonialOneQuote: "「AIに取り組みたいが、どこから着手すべきか決めきれない。」",
-          testimonialOneDetail: "着手テーマの整理から支援します。",
-          testimonialTwoQuote: "「社内で推進はしたいが、現場で回る形に落とし込めていない。」",
-          testimonialTwoDetail: "体制設計と実行計画を整えます。",
-          testimonialThreeQuote: "「PoCは実施したが、本番運用や社内定着まで進まない。」",
-          testimonialThreeDetail: "本番運用から社内定着まで完結させます。",
-          clientsLabel: "ご支援企業",
+          clientsLabel: "在籍・支援した企業",
+          casesKicker: "実績",
+          casesTitle: "組織とプロダクト、両面での実績。",
+          caseOneMetric: "480万+",
+          caseOneMetricLabel: "月間アクティブユーザー",
+          caseOneMeta: "大手フリマアプリ ・ Web / モバイル",
+          caseOneBody:
+            "React・Next.js・GraphQLでWebサイトを刷新。モバイルアプリもReact Nativeで全面的に作り直しました。",
+          caseTwoMetric: "+25%",
+          caseTwoMetricLabel: "開発組織の拡大",
+          caseTwoMeta: "モビリティ ・ 組織設計",
+          caseTwoBody:
+            "大手自動車メーカー向け車載ソフトウェアの開発組織を再編・拡大。開発プロセスの近代化も進めました。",
+          caseThreeMetric: "3拠点",
+          caseThreeMetricLabel: "分散チームの統括",
+          caseThreeMeta: "大手EC ・ プラットフォーム開発",
+          caseThreeBody:
+            "日本・フランス・カナダの開発チームを統括。レガシー環境をDocker・Kubernetesへ移行しました。",
+          profileNameLabel: "会社名",
+          profileName: "Fortyone Agency LLC",
+          profileFoundedLabel: "設立",
+          profileFounded: "2024年7月1日",
+          profileAddressLabel: "所在地",
+          profileAddress:
+            "〒150-0043<br />東京都渋谷区道玄坂1丁目10番8号 渋谷道玄坂東急ビル2F−C",
+          profileBookLabel: "著書",
+          profileBook:
+            "『<a class=\"profile-link\" href=\"https://www.fromculturetocode.com/\" target=\"_blank\" rel=\"noopener noreferrer\">From Culture to Code: Leading Software Engineering Teams Effectively</a>』Apress、2025年",
           servicesKicker: "支援内容",
-          servicesTitle: "AI導入をプランニングから実装まで支援します。",
-          serviceOneTitle: "AI導入戦略の整理",
-          serviceOneBody: "取り組むべきテーマと優先順位を整理します。",
-          serviceTwoTitle: "業務・プロダクト設計",
-          serviceTwoBody: "業務や顧客体験に合う形へ設計します。",
-          serviceThreeTitle: "実装推進・定着支援",
-          serviceThreeBody: "現場で使われ続ける運用まで支援します。",
+          servicesTitle: "技術と組織の両面から、開発を前に進めます。",
+          serviceOneTitle: "技術戦略・アーキテクチャ",
+          serviceOneBody:
+            "技術選定、システム設計、レガシー刷新の方針を整理し、意思決定を支えます。",
+          serviceTwoTitle: "開発組織づくり",
+          serviceTwoBody:
+            "チーム構成、採用、育成、開発プロセスの設計。分散チームの立ち上げも支援します。",
+          serviceThreeTitle: "実装支援",
+          serviceThreeBody:
+            "Web・モバイル・クラウド基盤に加え、AI・LLMを活用した機能の開発まで、必要に応じて手を動かしながら支援します。",
           companyKicker: "会社情報",
           companyTitle: "Fortyone Agencyについて",
-          companyOneTitle: "設立と所在地",
+          companyOneTitle: "25年以上の開発経験",
           companyOneBody:
-            "Fortyone Agency LLCは東京を拠点に、国内外の企業へAI導入支援を提供しています。",
-          companyTwoTitle: "ミッション",
+            "国内大手テック企業やモビリティ企業で、エンジニアリング責任者として開発組織を率いてきました。",
+          companyTwoTitle: "経営と現場、両方の視点",
           companyTwoBody:
-            "技術だけでなく、現場で使われる仕組みをつくり、成果につながるAI活用を実現します。",
-          companyThreeTitle: "価値観",
+            "組織設計から実装まで一貫して関わり、意思決定と現場の実行をつなぎます。",
+          companyThreeTitle: "知見の共有",
           companyThreeBody:
-            "実行力、現場重視、継続的な価値提供を大切にしています。",
-          approachKicker: "進め方",
-          approachTitle: "短期間で価値につなげる4ステップ。",
-          approachOneTitle: "現状理解",
-          approachOneBody: "重要な課題をすばやく明らかにします。",
-          approachTwoTitle: "優先設計",
-          approachTwoBody: "最も効果の高い進め方を決めます。",
-          approachThreeTitle: "構築・検証",
-          approachThreeBody: "実装できる形にまとめます。",
-          approachFourTitle: "定着",
-          approachFourBody: "運用につながる実行まで支援します。",
+            "代表者は開発組織づくりに関する著書を持ち、国内スタートアップの技術顧問も務めています。",
           contactKicker: "お問い合わせ",
-          contactTitle: "AI導入のご相談は<br />こちら。",
+          contactTitle: "開発組織のご相談は<br />こちら。",
           contactCta: "お問い合わせ",
           footerAddress:
             "〒150-0043<br />東京都渋谷区道玄坂1丁目10番8号<br />渋谷道玄坂東急ビル2F−C",
@@ -1059,63 +1138,73 @@
           contactPointThree: "組織に定着させたい",
         },
         en: {
-          pageTitle: "Fortyone Agency | From AI strategy to implementation",
+          pageTitle: "Fortyone Agency | Engineering leadership and delivery",
           metaDescription:
-            "Fortyone Agency helps companies turn AI initiatives into real implementation and adoption.",
+            "Fortyone Agency is a Tokyo-based software consultancy supporting technical strategy, engineering organisations, and hands-on delivery.",
           brandAriaLabel: "Fortyone Agency home",
           languageSwitcherLabel: "Language switcher",
           navAriaLabel: "Global navigation",
           navServices: "Services",
-          navApproach: "Approach",
+          navCases: "Case studies",
           navCompany: "Company",
-          navContact: "Contact",
-          heroTitle: "From AI strategy to systems your team can actually use.",
+          navContact: "Contact Us",
+          heroTitle: "Stronger engineering teams. Software that ships.",
           heroLead:
-            "Fortyone Agency supports companies with AI adoption from strategy and implementation through long-term adoption.",
-          heroPrimaryCta: "Contact us",
-          testimonialsAriaLabel: "Common challenges we hear",
-          testimonialOneQuote:
-            "\"We want to work on AI, but we have not decided where to start.\"",
-          testimonialOneDetail: "We help define the right starting initiatives.",
-          testimonialTwoQuote:
-            "\"We want to move forward, but it has not been shaped into something teams can run.\"",
-          testimonialTwoDetail: "We build the structure and execution plan.",
-          testimonialThreeQuote:
-            "\"We ran a PoC, but it has not reached production or internal adoption.\"",
-          testimonialThreeDetail: "We support rollout all the way to adoption.",
-          clientsLabel: "Companies we've worked with",
+            "Drawing on experience leading engineering organisations at some of Japan's largest tech companies, and helping tech startups get off the ground, we support technical strategy, team design, and delivery.",
+          heroPrimaryCta: "Contact Us",
+          clientsLabel: "Where we've worked and advised",
+          casesKicker: "Track record",
+          casesTitle: "Results across teams and products.",
+          caseOneMetric: "4.8M+",
+          caseOneMetricLabel: "Monthly active users",
+          caseOneMeta: "Marketplace · Web and mobile",
+          caseOneBody:
+            "Modernised the website with React, Next.js and GraphQL, and rewrote the mobile apps from scratch in React Native.",
+          caseTwoMetric: "+25%",
+          caseTwoMetricLabel: "Engineering org growth",
+          caseTwoMeta: "Mobility · Organisation design",
+          caseTwoBody:
+            "Restructured and grew the engineering organisation building in-vehicle software for a major automaker, and modernised its development practices.",
+          caseThreeMetric: "3 sites",
+          caseThreeMetricLabel: "Distributed teams led",
+          caseThreeMeta: "E-commerce · Platform engineering",
+          caseThreeBody:
+            "Led development teams across Japan, France and Canada, migrating a legacy platform to Docker and Kubernetes.",
+          profileNameLabel: "Company",
+          profileName: "Fortyone Agency LLC",
+          profileFoundedLabel: "Founded",
+          profileFounded: "July 1, 2024",
+          profileAddressLabel: "Address",
+          profileAddress:
+            "Shibuya Dogenzaka Tokyu Building 2F-C<br />Dogenzaka 1-10-8, Shibuya-ku, Tokyo 150-0043, Japan",
+          profileBookLabel: "Book",
+          profileBook:
+            "<a class=\"profile-link\" href=\"https://www.fromculturetocode.com/\" target=\"_blank\" rel=\"noopener noreferrer\"><em>From Culture to Code: Leading Software Engineering Teams Effectively</em></a> (Apress, 2025)",
           servicesKicker: "Services",
-          servicesTitle: "Support for AI adoption from planning through implementation.",
-          serviceOneTitle: "AI strategy definition",
-          serviceOneBody: "We clarify the right themes to pursue and how to prioritize them.",
-          serviceTwoTitle: "Workflow and product design",
-          serviceTwoBody: "We design AI initiatives to fit your operations and customer experience.",
-          serviceThreeTitle: "Implementation and adoption support",
-          serviceThreeBody: "We help drive execution and lasting adoption.",
+          servicesTitle: "Moving engineering forward, technically and organisationally.",
+          serviceOneTitle: "Technical strategy and architecture",
+          serviceOneBody:
+            "Technology selection, system design, and legacy modernisation — clarified to support real decisions.",
+          serviceTwoTitle: "Building engineering teams",
+          serviceTwoBody:
+            "Team structure, hiring, mentoring, and development process. Including setting up distributed teams.",
+          serviceThreeTitle: "Hands-on delivery",
+          serviceThreeBody:
+            "Web, mobile, and cloud infrastructure, plus AI and LLM-backed features — writing production code alongside your team where it helps.",
           companyKicker: "Company",
           companyTitle: "About Fortyone Agency",
-          companyOneTitle: "Founded and based in Tokyo",
+          companyOneTitle: "25+ years in software",
           companyOneBody:
-            "Fortyone Agency LLC is headquartered in Tokyo and works with companies in Japan and abroad.",
-          companyTwoTitle: "Our mission",
+            "Engineering leadership roles at leading Japanese tech and mobility companies, building and running development organisations.",
+          companyTwoTitle: "Boardroom and shop floor",
           companyTwoBody:
-            "We build AI solutions that are adopted by teams and deliver measurable business value.",
-          companyThreeTitle: "Our values",
+            "Involved from organisation design through to implementation, connecting decisions to what teams actually ship.",
+          companyThreeTitle: "Sharing what we learn",
           companyThreeBody:
-            "We prioritize execution, practical adoption, and sustained impact.",
-          approachKicker: "Approach",
-          approachTitle: "Fast, practical steps from idea to use.",
-          approachOneTitle: "Assess",
-          approachOneBody: "We quickly clarify the most important gaps.",
-          approachTwoTitle: "Plan",
-          approachTwoBody: "We choose the highest-value work to do first.",
-          approachThreeTitle: "Build",
-          approachThreeBody: "We turn that plan into a working solution.",
-          approachFourTitle: "Adopt",
-          approachFourBody: "We help your team start using it in practice.",
+            "Our founder authored a book on leading engineering teams and advises Japanese technology startups.",
           contactKicker: "Contact",
-          contactTitle: "Let's talk about<br />your AI initiative.",
-          contactCta: "Contact us",
+          contactTitle: "Let's talk about<br />your engineering team.",
+          contactCta: "Contact Us",
           footerAddress:
             "Shibuya Dogenzaka Tokyu Building 2F-C<br />Dogenzaka 1-10-8<br />Shibuya-ku, Tokyo 150-0043<br />Japan",
           footerContactLink: "Contact Us",
