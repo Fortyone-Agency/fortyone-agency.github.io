@@ -1,0 +1,47 @@
+# fortyone-agency.github.io
+
+Static bilingual site for Fortyone Agency LLC.
+
+## Editing content
+
+**Edit `template.html`, never `index.html` or `en/index.html`** — those two are
+generated and any manual change to them is overwritten on the next build.
+
+`template.html` holds the Japanese copy inline (so it is readable on its own)
+plus a `translations` object near the bottom with both locales. To change copy:
+
+1. Update the string in the `translations` object (`ja` and `en`).
+2. Update the matching inline Japanese text in the markup, so the template
+   stays readable and the two never drift.
+3. Run the build.
+
+```sh
+node build.js
+```
+
+That regenerates:
+
+| Output          | Locale   | Canonical URL                        |
+| --------------- | -------- | ------------------------------------ |
+| `index.html`    | Japanese | `https://www.fortyoneagency.com/`    |
+| `en/index.html` | English  | `https://www.fortyoneagency.com/en/` |
+
+## Why two files
+
+A single page that swapped languages with JavaScript could only ever be indexed
+once, so the English copy was invisible to search engines. Splitting gives each
+language its own URL, `<html lang>`, title, meta description, canonical, and
+`hreflang` tags — and the generated pages need no JavaScript to render their
+text.
+
+## What the build does
+
+For each locale it substitutes every `[data-i18n]` value, rewrites the
+`data-i18n-attr` / `data-i18n-key` attributes, swaps the language switcher for
+plain links between the two pages, strips the runtime i18n script, and fixes
+relative asset paths for `/en/`.
+
+## Other files
+
+- `logo.svg`, `logos/` — brand mark and client logos (vectorised; no live fonts)
+- `sitemap.xml`, `robots.txt` — reference the two canonical URLs

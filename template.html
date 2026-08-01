@@ -8,10 +8,6 @@
       name="description"
       content="Fortyone Agencyは、技術戦略から開発組織づくり、実装までを一貫して支援するソフトウェアコンサルティングです。東京拠点。"
     />
-    <link rel="canonical" href="https://www.fortyoneagency.com/" />
-    <link rel="alternate" hreflang="ja" href="https://www.fortyoneagency.com/" />
-    <link rel="alternate" hreflang="en" href="https://www.fortyoneagency.com/en/" />
-    <link rel="alternate" hreflang="x-default" href="https://www.fortyoneagency.com/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -752,6 +748,8 @@
             class="brand"
             href="#top"
             aria-label="Fortyone Agency home"
+            data-i18n-attr="aria-label"
+            data-i18n-key="brandAriaLabel"
           >
             <object data="logo.svg" type="image/svg+xml" class="brand-logo" aria-label="Fortyone Agency logo"></object>
           </a>
@@ -759,21 +757,30 @@
             <nav
               class="nav-links"
               aria-label="グローバルナビゲーション"
+              data-i18n-attr="aria-label"
+              data-i18n-key="navAriaLabel"
             >
-              <a href="#services">支援内容</a>
-              <a href="#cases">実績</a>
-              <a href="#company">会社情報</a>
+              <a href="#services" data-i18n="navServices">支援内容</a>
+              <a href="#cases" data-i18n="navCases">実績</a>
+              <a href="#company" data-i18n="navCompany">会社情報</a>
               <a
                 class="button button-secondary"
                 href="https://forms.gle/3dkUV9m5ZY8dhi1JA"
                 target="_blank"
                 rel="noopener noreferrer"
+                data-i18n="navContact"
                 >お問い合わせ</a
               >
             </nav>
-            <div class="language-switch" role="group" aria-label="言語切替">
-              <a class="language-button is-active" href="#top" hreflang="ja" aria-current="page">JA</a>
-              <a class="language-button" href="en/" hreflang="en">EN</a>
+            <div
+              class="language-switch"
+              role="group"
+              aria-label="Language switcher"
+              data-i18n-attr="aria-label"
+              data-i18n-key="languageSwitcherLabel"
+            >
+              <button class="language-button is-active" type="button" data-lang="ja">JA</button>
+              <button class="language-button" type="button" data-lang="en">EN</button>
             </div>
           </div>
         </div>
@@ -783,14 +790,17 @@
         <section class="hero">
           <div class="container">
             <div class="hero-copy">
-              <h1>開発組織を強くし、プロダクトを前に進める。</h1>
-              <p class="lead">国内大手テック企業で開発組織を率い、スタートアップの立ち上げにも携わってきた知見をもとに、技術戦略から組織設計、実装まで一貫して支援します。</p>
+              <h1 data-i18n="heroTitle">開発組織を強くし、プロダクトを前に進める。</h1>
+              <p class="lead" data-i18n="heroLead">
+                国内大手テック企業で開発組織を率い、スタートアップの立ち上げにも携わってきた知見をもとに、技術戦略から組織設計、実装まで一貫して支援します。
+              </p>
               <div class="hero-actions">
                 <a
                   class="button button-primary"
                   href="https://forms.gle/3dkUV9m5ZY8dhi1JA"
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-i18n="heroPrimaryCta"
                   >お問い合わせ</a
                 >
               </div>
@@ -800,7 +810,9 @@
 
         <section class="clients" aria-labelledby="clients-label">
           <div class="container">
-            <div class="clients-label" id="clients-label">在籍・支援した企業</div>
+            <div class="clients-label" id="clients-label" data-i18n="clientsLabel">
+              在籍・支援した企業
+            </div>
             <div class="marquee">
               <div class="marquee-track">
                 <img src="logos/mercari.png" alt="Mercari" loading="lazy" />
@@ -828,26 +840,32 @@
           <div class="container">
             <div class="section-head">
               <div class="section-intro">
-                <div class="section-kicker">支援内容</div>
-                <h2>技術・組織・AI活用の三方向から、開発を前に進めます。</h2>
+                <div class="section-kicker" data-i18n="servicesKicker">支援内容</div>
+                <h2 data-i18n="servicesTitle">技術・組織・AI活用の三方向から、開発を前に進めます。</h2>
               </div>
             </div>
 
             <div class="card-grid">
               <article class="card">
                 <div class="card-number">01</div>
-                <h3>技術戦略・アーキテクチャ</h3>
-                <p>技術選定、システム設計、レガシー刷新の方針を整理し、意思決定を支えます。</p>
+                <h3 data-i18n="serviceOneTitle">技術戦略・アーキテクチャ</h3>
+                <p data-i18n="serviceOneBody">
+                  技術選定、システム設計、レガシー刷新の方針を整理し、意思決定を支えます。
+                </p>
               </article>
               <article class="card">
                 <div class="card-number">02</div>
-                <h3>開発組織づくり</h3>
-                <p>チーム構成、採用、育成、開発プロセスの設計。分散チームの立ち上げも支援します。</p>
+                <h3 data-i18n="serviceTwoTitle">開発組織づくり</h3>
+                <p data-i18n="serviceTwoBody">
+                  チーム構成、採用、育成、開発プロセスの設計。分散チームの立ち上げも支援します。
+                </p>
               </article>
               <article class="card">
                 <div class="card-number">03</div>
-                <h3>AI活用の推進</h3>
-                <p>開発現場へのAIツールの導入と、LLMを活用した機能の設計・実装。評価と運用の仕組みまで整えます。</p>
+                <h3 data-i18n="serviceThreeTitle">AI活用の推進</h3>
+                <p data-i18n="serviceThreeBody">
+                  開発現場へのAIツールの導入と、LLMを活用した機能の設計・実装。評価と運用の仕組みまで整えます。
+                </p>
               </article>
             </div>
           </div>
@@ -857,47 +875,84 @@
           <div class="container">
             <div class="section-head">
               <div class="section-intro">
-                <div class="section-kicker">実績</div>
-                <h2>組織とプロダクト、両面での実績。</h2>
+                <div class="section-kicker" data-i18n="casesKicker">実績</div>
+                <h2 data-i18n="casesTitle">組織とプロダクト、両面での実績。</h2>
               </div>
             </div>
 
             <div class="case-grid">
               <article class="case">
-                <div class="case-metric">480万+</div>
-                <div class="case-metric-label">月間アクティブユーザー</div>
-                <div class="case-meta">大手フリマアプリ ・ Web / モバイル</div>
-                <p>React・Next.js・GraphQLでWebサイトを刷新。モバイルアプリもReact Nativeで全面的に作り直しました。</p>
+                <div class="case-metric" data-i18n="caseOneMetric">480万+</div>
+                <div class="case-metric-label" data-i18n="caseOneMetricLabel">
+                  月間アクティブユーザー
+                </div>
+                <div class="case-meta" data-i18n="caseOneMeta">
+                  大手フリマアプリ ・ Web / モバイル
+                </div>
+                <p data-i18n="caseOneBody">
+                  React・Next.js・GraphQLでWebサイトを刷新。モバイルアプリもReact
+                  Nativeで全面的に作り直しました。
+                </p>
               </article>
               <article class="case">
-                <div class="case-metric">+25%</div>
-                <div class="case-metric-label">開発組織の拡大</div>
-                <div class="case-meta">モビリティ ・ 組織設計</div>
-                <p>大手自動車メーカー向け車載ソフトウェアの開発組織を再編・拡大。開発プロセスの近代化も進めました。</p>
+                <div class="case-metric" data-i18n="caseTwoMetric">+25%</div>
+                <div class="case-metric-label" data-i18n="caseTwoMetricLabel">
+                  開発組織の拡大
+                </div>
+                <div class="case-meta" data-i18n="caseTwoMeta">
+                  モビリティ ・ 組織設計
+                </div>
+                <p data-i18n="caseTwoBody">
+                  大手自動車メーカー向け車載ソフトウェアの開発組織を再編・拡大。開発プロセスの近代化も進めました。
+                </p>
               </article>
               <article class="case">
-                <div class="case-metric">3拠点</div>
-                <div class="case-metric-label">分散チームの統括</div>
-                <div class="case-meta">大手EC ・ プラットフォーム開発</div>
-                <p>日本・フランス・カナダの開発チームを統括。レガシー環境をDocker・Kubernetesへ移行しました。</p>
+                <div class="case-metric" data-i18n="caseThreeMetric">3拠点</div>
+                <div class="case-metric-label" data-i18n="caseThreeMetricLabel">
+                  分散チームの統括
+                </div>
+                <div class="case-meta" data-i18n="caseThreeMeta">
+                  大手EC ・ プラットフォーム開発
+                </div>
+                <p data-i18n="caseThreeBody">
+                  日本・フランス・カナダの開発チームを統括。レガシー環境をDocker・Kubernetesへ移行しました。
+                </p>
               </article>
               <article class="case">
-                <div class="case-metric">0 → 1</div>
-                <div class="case-metric-label">立ち上げ期の技術支援</div>
-                <div class="case-meta">スタートアップ ・ 技術顧問</div>
-                <p>創業期の国内スタートアップに対し、アーキテクチャ設計、採用、開発体制づくりを支援しています。</p>
+                <div class="case-metric" data-i18n="caseFourMetric">0 → 1</div>
+                <div class="case-metric-label" data-i18n="caseFourMetricLabel">
+                  立ち上げ期の技術支援
+                </div>
+                <div class="case-meta" data-i18n="caseFourMeta">
+                  スタートアップ ・ 技術顧問
+                </div>
+                <p data-i18n="caseFourBody">
+                  創業期の国内スタートアップに対し、アーキテクチャ設計、採用、開発体制づくりを支援しています。
+                </p>
               </article>
               <article class="case">
-                <div class="case-metric">AIエージェント</div>
-                <div class="case-metric-label">資料をインタラクティブな動画に</div>
-                <div class="case-meta">SaaS ・ AIコンテンツ基盤</div>
-                <p>営業・研修資料から、視聴者がその場で質問できる動画エージェントを生成するAI基盤の開発を継続的に支援しています。</p>
+                <div class="case-metric" data-i18n="caseFiveMetric">AIエージェント</div>
+                <div class="case-metric-label" data-i18n="caseFiveMetricLabel">
+                  資料をインタラクティブな動画に
+                </div>
+                <div class="case-meta" data-i18n="caseFiveMeta">
+                  SaaS ・ AIコンテンツ基盤
+                </div>
+                <p data-i18n="caseFiveBody">
+                  営業・研修資料から、視聴者がその場で質問できる動画エージェントを生成するAI基盤の開発を継続的に支援しています。
+                </p>
               </article>
               <article class="case">
-                <div class="case-metric">クロスプラットフォーム</div>
-                <div class="case-metric-label">ショッピングアプリの設計・開発</div>
-                <div class="case-meta">比較レビュー ・ モバイルコマース</div>
-                <p>比較レビューサービス向けのReact Native製ECアプリについて、設計から開発までをリードし、リリースまで導きました。</p>
+                <div class="case-metric" data-i18n="caseSixMetric">クロスプラットフォーム</div>
+                <div class="case-metric-label" data-i18n="caseSixMetricLabel">
+                  ショッピングアプリの設計・開発
+                </div>
+                <div class="case-meta" data-i18n="caseSixMeta">
+                  比較レビュー ・ モバイルコマース
+                </div>
+                <p data-i18n="caseSixBody">
+                  比較レビューサービス向けのReact Native製ECアプリについて、設計から開発までをリードし、リリースまで導きました。
+                </p>
               </article>
             </div>
           </div>
@@ -907,42 +962,50 @@
           <div class="container">
             <div class="section-head">
               <div class="section-intro">
-                <div class="section-kicker">会社情報</div>
-                <h2>Fortyone Agencyについて</h2>
+                <div class="section-kicker" data-i18n="companyKicker">会社情報</div>
+                <h2 data-i18n="companyTitle">Fortyone Agencyについて</h2>
               </div>
             </div>
 
             <div class="card-grid">
               <article class="card">
                 <div class="card-number">01</div>
-                <h3>25年以上の開発経験</h3>
-                <p>国内大手テック企業やモビリティ企業で、エンジニアリング責任者として開発組織を率いてきました。</p>
+                <h3 data-i18n="companyOneTitle">25年以上の開発経験</h3>
+                <p data-i18n="companyOneBody">
+                  国内大手テック企業やモビリティ企業で、エンジニアリング責任者として開発組織を率いてきました。
+                </p>
               </article>
               <article class="card">
                 <div class="card-number">02</div>
-                <h3>経営と現場、両方の視点</h3>
-                <p>組織設計から実装まで一貫して関わり、意思決定と現場の実行をつなぎます。</p>
+                <h3 data-i18n="companyTwoTitle">経営と現場、両方の視点</h3>
+                <p data-i18n="companyTwoBody">
+                  組織設計から実装まで一貫して関わり、意思決定と現場の実行をつなぎます。
+                </p>
               </article>
               <article class="card">
                 <div class="card-number">03</div>
-                <h3>知見の共有</h3>
-                <p>国内スタートアップの技術顧問として、開発組織づくりの知見を継続的に共有しています。</p>
+                <h3 data-i18n="companyThreeTitle">知見の共有</h3>
+                <p data-i18n="companyThreeBody">
+                  国内スタートアップの技術顧問として、開発組織づくりの知見を継続的に共有しています。
+                </p>
               </article>
             </div>
 
             <div class="profile">
               <dl>
-                <dt>会社名</dt>
-                <dd>Fortyone Agency LLC</dd>
+                <dt data-i18n="profileNameLabel">会社名</dt>
+                <dd data-i18n="profileName">Fortyone Agency LLC</dd>
 
-                <dt>設立</dt>
-                <dd>2024年7月1日</dd>
+                <dt data-i18n="profileFoundedLabel">設立</dt>
+                <dd data-i18n="profileFounded">2024年7月1日</dd>
 
-                <dt>資本金</dt>
-                <dd>100万円</dd>
+                <dt data-i18n="profileCapitalLabel">資本金</dt>
+                <dd data-i18n="profileCapital">100万円</dd>
 
-                <dt>所在地</dt>
-                <dd>〒150-0043<br />東京都渋谷区道玄坂1丁目10番8号 渋谷道玄坂東急ビル2F−C</dd>
+                <dt data-i18n="profileAddressLabel">所在地</dt>
+                <dd data-i18n="profileAddress">
+                  〒150-0043<br />東京都渋谷区道玄坂1丁目10番8号 渋谷道玄坂東急ビル2F−C
+                </dd>
               </dl>
             </div>
           </div>
@@ -955,8 +1018,11 @@
                 <div
                   class="section-kicker"
                   style="color: var(--accent-warm)"
-                >お問い合わせ</div>
-                <h2>開発組織のご相談は<br />こちら。</h2>
+                  data-i18n="contactKicker"
+                >
+                  お問い合わせ
+                </div>
+                <h2 data-i18n="contactTitle">開発組織のご相談は<br />こちら。</h2>
               </div>
               <div class="cta-actions">
                 <a
@@ -964,6 +1030,7 @@
                   href="https://forms.gle/3dkUV9m5ZY8dhi1JA"
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-i18n="contactCta"
                   >お問い合わせ</a
                 >
               </div>
@@ -977,32 +1044,272 @@
           <div class="footer-top">
             <div class="footer-brand">
               <div class="footer-name">Fortyone Agency LLC</div>
-              <address class="footer-address">〒150-0043<br />東京都渋谷区道玄坂1丁目10番8号<br />渋谷道玄坂東急ビル2F−C</address>
+              <address class="footer-address" data-i18n="footerAddress">
+                〒150-0043<br />東京都渋谷区道玄坂1丁目10番8号<br />渋谷道玄坂東急ビル2F−C
+              </address>
             </div>
 
             <div class="footer-col">
               <nav class="footer-links" aria-labelledby="footer-nav-label">
-                <span id="footer-nav-label" hidden>フッターナビゲーション</span>
+                <span id="footer-nav-label" hidden data-i18n="footerNavLabel">フッターナビゲーション</span>
                 <a
                   href="https://forms.gle/3dkUV9m5ZY8dhi1JA"
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-i18n="footerContactLink"
                   >お問い合わせ</a
                 >
-                <a href="#services">支援内容</a>
-                <a href="#cases">実績</a>
-                <a href="#company">会社情報</a>
+                <a href="#services" data-i18n="navServices">支援内容</a>
+                <a href="#cases" data-i18n="navCases">実績</a>
+                <a href="#company" data-i18n="navCompany">会社情報</a>
               </nav>
             </div>
           </div>
 
           <div class="footer-bottom">
-            <small
+            <small data-i18n="footerCopyright"
               >© 2026 Fortyone Agency LLC. All rights reserved.</small
             >
           </div>
         </div>
       </footer>
     </div>
+    <script>
+      const translations = {
+        ja: {
+          pageTitle: "Fortyone Agency | 技術戦略・開発組織づくりの支援",
+          metaDescription:
+            "Fortyone Agencyは、技術戦略から開発組織づくり、実装までを一貫して支援するソフトウェアコンサルティングです。東京拠点。",
+          brandAriaLabel: "Fortyone Agency home",
+          languageSwitcherLabel: "言語切替",
+          navAriaLabel: "グローバルナビゲーション",
+          navServices: "支援内容",
+          navCases: "実績",
+          navCompany: "会社情報",
+          navContact: "お問い合わせ",
+          heroTitle: "開発組織を強くし、プロダクトを前に進める。",
+          heroLead:
+            "国内大手テック企業で開発組織を率い、スタートアップの立ち上げにも携わってきた知見をもとに、技術戦略から組織設計、実装まで一貫して支援します。",
+          heroPrimaryCta: "お問い合わせ",
+          clientsLabel: "在籍・支援した企業",
+          casesKicker: "実績",
+          casesTitle: "組織とプロダクト、両面での実績。",
+          caseOneMetric: "480万+",
+          caseOneMetricLabel: "月間アクティブユーザー",
+          caseOneMeta: "大手フリマアプリ ・ Web / モバイル",
+          caseOneBody:
+            "React・Next.js・GraphQLでWebサイトを刷新。モバイルアプリもReact Nativeで全面的に作り直しました。",
+          caseTwoMetric: "+25%",
+          caseTwoMetricLabel: "開発組織の拡大",
+          caseTwoMeta: "モビリティ ・ 組織設計",
+          caseTwoBody:
+            "大手自動車メーカー向け車載ソフトウェアの開発組織を再編・拡大。開発プロセスの近代化も進めました。",
+          caseThreeMetric: "3拠点",
+          caseThreeMetricLabel: "分散チームの統括",
+          caseThreeMeta: "大手EC ・ プラットフォーム開発",
+          caseThreeBody:
+            "日本・フランス・カナダの開発チームを統括。レガシー環境をDocker・Kubernetesへ移行しました。",
+          caseFourMetric: "0 → 1",
+          caseFourMetricLabel: "立ち上げ期の技術支援",
+          caseFourMeta: "スタートアップ ・ 技術顧問",
+          caseFourBody:
+            "創業期の国内スタートアップに対し、アーキテクチャ設計、採用、開発体制づくりを支援しています。",
+          caseFiveMetric: "AIエージェント",
+          caseFiveMetricLabel: "資料をインタラクティブな動画に",
+          caseFiveMeta: "SaaS ・ AIコンテンツ基盤",
+          caseFiveBody:
+            "営業・研修資料から、視聴者がその場で質問できる動画エージェントを生成するAI基盤の開発を継続的に支援しています。",
+          caseSixMetric: "クロスプラットフォーム",
+          caseSixMetricLabel: "ショッピングアプリの設計・開発",
+          caseSixMeta: "比較レビュー ・ モバイルコマース",
+          caseSixBody:
+            "比較レビューサービス向けのReact Native製ECアプリについて、設計から開発までをリードし、リリースまで導きました。",
+          profileNameLabel: "会社名",
+          profileName: "Fortyone Agency LLC",
+          profileFoundedLabel: "設立",
+          profileFounded: "2024年7月1日",
+          profileCapitalLabel: "資本金",
+          profileCapital: "100万円",
+          profileAddressLabel: "所在地",
+          profileAddress:
+            "〒150-0043<br />東京都渋谷区道玄坂1丁目10番8号 渋谷道玄坂東急ビル2F−C",
+          servicesKicker: "支援内容",
+          servicesTitle: "技術・組織・AI活用の三方向から、開発を前に進めます。",
+          serviceOneTitle: "技術戦略・アーキテクチャ",
+          serviceOneBody:
+            "技術選定、システム設計、レガシー刷新の方針を整理し、意思決定を支えます。",
+          serviceTwoTitle: "開発組織づくり",
+          serviceTwoBody:
+            "チーム構成、採用、育成、開発プロセスの設計。分散チームの立ち上げも支援します。",
+          serviceThreeTitle: "AI活用の推進",
+          serviceThreeBody:
+            "開発現場へのAIツールの導入と、LLMを活用した機能の設計・実装。評価と運用の仕組みまで整えます。",
+          companyKicker: "会社情報",
+          companyTitle: "Fortyone Agencyについて",
+          companyOneTitle: "25年以上の開発経験",
+          companyOneBody:
+            "国内大手テック企業やモビリティ企業で、エンジニアリング責任者として開発組織を率いてきました。",
+          companyTwoTitle: "経営と現場、両方の視点",
+          companyTwoBody:
+            "組織設計から実装まで一貫して関わり、意思決定と現場の実行をつなぎます。",
+          companyThreeTitle: "知見の共有",
+          companyThreeBody:
+            "国内スタートアップの技術顧問として、開発組織づくりの知見を継続的に共有しています。",
+          contactKicker: "お問い合わせ",
+          contactTitle: "開発組織のご相談は<br />こちら。",
+          contactCta: "お問い合わせ",
+          footerAddress:
+            "〒150-0043<br />東京都渋谷区道玄坂1丁目10番8号<br />渋谷道玄坂東急ビル2F−C",
+          footerContactLink: "お問い合わせ",
+          footerNavLabel: "フッターナビゲーション",
+          footerCopyright: "© 2026 Fortyone Agency LLC. All rights reserved.",
+          contactListAriaLabel: "初回相談でよくあるテーマ",
+          contactPointOne: "どこから始めるべきか知りたい",
+          contactPointTwo: "PoCから本番導入へ進めたい",
+          contactPointThree: "組織に定着させたい",
+        },
+        en: {
+          pageTitle: "Fortyone Agency | Engineering leadership and delivery",
+          metaDescription:
+            "Fortyone Agency is a Tokyo-based software consultancy supporting technical strategy, engineering organisations, and hands-on delivery.",
+          brandAriaLabel: "Fortyone Agency home",
+          languageSwitcherLabel: "Language switcher",
+          navAriaLabel: "Global navigation",
+          navServices: "How we help",
+          navCases: "Our Work",
+          navCompany: "Company",
+          navContact: "Contact Us",
+          heroTitle: "Stronger engineering teams. Software that ships.",
+          heroLead:
+            "Drawing on experience leading engineering organisations at some of Japan's largest tech companies, and helping tech startups get off the ground, we support technical strategy, team design, and delivery.",
+          heroPrimaryCta: "Contact Us",
+          clientsLabel: "Where we've worked and advised",
+          casesKicker: "Our Work",
+          casesTitle: "Results across teams and products.",
+          caseOneMetric: "4.8M+",
+          caseOneMetricLabel: "Monthly active users",
+          caseOneMeta: "Marketplace · Web and mobile",
+          caseOneBody:
+            "Modernised the website with React, Next.js and GraphQL, and rewrote the mobile apps from scratch in React Native.",
+          caseTwoMetric: "+25%",
+          caseTwoMetricLabel: "Engineering org growth",
+          caseTwoMeta: "Mobility · Organisation design",
+          caseTwoBody:
+            "Restructured and grew the engineering organisation building in-vehicle software for a major automaker, and modernised its development practices.",
+          caseThreeMetric: "3 sites",
+          caseThreeMetricLabel: "Distributed teams led",
+          caseThreeMeta: "E-commerce · Platform engineering",
+          caseThreeBody:
+            "Led development teams across Japan, France and Canada, migrating a legacy platform to Docker and Kubernetes.",
+          caseFourMetric: "0 → 1",
+          caseFourMetricLabel: "Early-stage engineering advisory",
+          caseFourMeta: "Startups · Advisory",
+          caseFourBody:
+            "Advising early-stage Japanese startups on architecture, hiring, and building an engineering practice from the ground up.",
+          caseFiveMetric: "AI agents",
+          caseFiveMetricLabel: "Documents into interactive video",
+          caseFiveMeta: "SaaS · AI content platform",
+          caseFiveBody:
+            "Ongoing engineering work on an AI platform that turns sales and training material into interactive video agents viewers can question in real time.",
+          caseSixMetric: "Cross-platform",
+          caseSixMetricLabel: "Shopping app design and build",
+          caseSixMeta: "Consumer review platform · Mobile commerce",
+          caseSixBody:
+            "Led design and development of a React Native e-commerce app for a consumer review platform, from concept through to a shipped product.",
+          profileNameLabel: "Company",
+          profileName: "Fortyone Agency LLC",
+          profileFoundedLabel: "Founded",
+          profileFounded: "July 1, 2024",
+          profileCapitalLabel: "Capital",
+          profileCapital: "¥1,000,000",
+          profileAddressLabel: "Address",
+          profileAddress:
+            "Shibuya Dogenzaka Tokyu Building 2F-C<br />Dogenzaka 1-10-8, Shibuya-ku, Tokyo 150-0043, Japan",
+          servicesKicker: "How we help",
+          servicesTitle: "Moving engineering forward: technology, teams, and AI.",
+          serviceOneTitle: "Technical strategy and architecture",
+          serviceOneBody:
+            "Technology selection, system design, and legacy modernisation — clarified to support real decisions.",
+          serviceTwoTitle: "Building engineering teams",
+          serviceTwoBody:
+            "Team structure, hiring, mentoring, and development process. Including setting up distributed teams.",
+          serviceThreeTitle: "Putting AI to work",
+          serviceThreeBody:
+            "Adopting AI tooling across your engineering workflow, and designing and building LLM-backed features — including how they are evaluated and run.",
+          companyKicker: "Company",
+          companyTitle: "About Fortyone Agency",
+          companyOneTitle: "25+ years in software",
+          companyOneBody:
+            "Engineering leadership roles at leading Japanese tech and mobility companies, building and running development organisations.",
+          companyTwoTitle: "Boardroom and shop floor",
+          companyTwoBody:
+            "Involved from organisation design through to implementation, connecting decisions to what teams actually ship.",
+          companyThreeTitle: "Sharing what we learn",
+          companyThreeBody:
+            "We advise Japanese technology startups, sharing what we have learned about building engineering teams.",
+          contactKicker: "Contact",
+          contactTitle: "Let's talk about<br />your engineering team.",
+          contactCta: "Contact Us",
+          footerAddress:
+            "Shibuya Dogenzaka Tokyu Building 2F-C<br />Dogenzaka 1-10-8<br />Shibuya-ku, Tokyo 150-0043<br />Japan",
+          footerContactLink: "Contact Us",
+          footerNavLabel: "Footer navigation",
+          footerCopyright: "© 2026 Fortyone Agency LLC. All rights reserved.",
+          contactListAriaLabel: "Common topics for an initial conversation",
+          contactPointOne: "Figure out where to begin",
+          contactPointTwo: "Move from PoC to production",
+          contactPointThree: "Make adoption stick across the organization",
+        },
+      };
+
+      const languageButtons = document.querySelectorAll("[data-lang]");
+      const translatableNodes = document.querySelectorAll("[data-i18n]");
+      const attributeNodes = document.querySelectorAll("[data-i18n-attr]");
+      const descriptionMeta = document.querySelector('meta[name="description"]');
+
+      function applyLanguage(lang) {
+        const locale = translations[lang] ? lang : "ja";
+        const dictionary = translations[locale];
+
+        document.documentElement.lang = locale;
+        document.title = dictionary.pageTitle;
+        descriptionMeta.setAttribute("content", dictionary.metaDescription);
+
+        translatableNodes.forEach((node) => {
+          const key = node.dataset.i18n;
+          if (dictionary[key]) {
+            node.innerHTML = dictionary[key];
+          }
+        });
+
+        attributeNodes.forEach((node) => {
+          const attrName = node.dataset.i18nAttr;
+          const key = node.dataset.i18nKey;
+          if (attrName && key && dictionary[key]) {
+            node.setAttribute(attrName, dictionary[key]);
+          }
+        });
+
+        languageButtons.forEach((button) => {
+          const isActive = button.dataset.lang === locale;
+          button.classList.toggle("is-active", isActive);
+          button.setAttribute("aria-pressed", String(isActive));
+        });
+
+        localStorage.setItem("preferredLanguage", locale);
+      }
+
+      const savedLanguage = localStorage.getItem("preferredLanguage");
+      const browserLanguage = navigator.language && navigator.language.toLowerCase().startsWith("ja")
+        ? "ja"
+        : "en";
+      const initialLanguage = savedLanguage || browserLanguage || "ja";
+
+      languageButtons.forEach((button) => {
+        button.addEventListener("click", () => applyLanguage(button.dataset.lang));
+      });
+
+      applyLanguage(initialLanguage);
+    </script>
   </body>
 </html>
