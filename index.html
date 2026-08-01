@@ -463,16 +463,6 @@
         line-height: var(--leading-snug);
       }
 
-      .profile-link {
-        color: var(--accent);
-        text-decoration: underline;
-        text-underline-offset: 2px;
-        transition: color 160ms ease;
-      }
-
-      .profile-link:hover {
-        color: var(--accent-hover);
-      }
 
       .profile dt:first-of-type,
       .profile dt:first-of-type + dd {
@@ -928,6 +918,42 @@
                   日本・フランス・カナダの開発チームを統括。レガシー環境をDocker・Kubernetesへ移行しました。
                 </p>
               </article>
+              <article class="case">
+                <div class="case-metric" data-i18n="caseFourMetric">0 → 1</div>
+                <div class="case-metric-label" data-i18n="caseFourMetricLabel">
+                  立ち上げ期の技術支援
+                </div>
+                <div class="case-meta" data-i18n="caseFourMeta">
+                  スタートアップ ・ 技術顧問
+                </div>
+                <p data-i18n="caseFourBody">
+                  創業期の国内スタートアップに対し、アーキテクチャ設計、採用、開発体制づくりを支援しています。
+                </p>
+              </article>
+              <article class="case">
+                <div class="case-metric" data-i18n="caseFiveMetric">AIエージェント</div>
+                <div class="case-metric-label" data-i18n="caseFiveMetricLabel">
+                  資料をインタラクティブな動画に
+                </div>
+                <div class="case-meta" data-i18n="caseFiveMeta">
+                  SaaS ・ AIコンテンツ基盤
+                </div>
+                <p data-i18n="caseFiveBody">
+                  営業・研修資料から、視聴者がその場で質問できる動画エージェントを生成するAI基盤の開発を継続的に支援しています。
+                </p>
+              </article>
+              <article class="case">
+                <div class="case-metric" data-i18n="caseSixMetric">クロスプラットフォーム</div>
+                <div class="case-metric-label" data-i18n="caseSixMetricLabel">
+                  ショッピングアプリの設計・開発
+                </div>
+                <div class="case-meta" data-i18n="caseSixMeta">
+                  比較レビュー ・ モバイルコマース
+                </div>
+                <p data-i18n="caseSixBody">
+                  比較レビューサービス向けのReact Native製ECアプリについて、設計から開発までをリードし、リリースまで導きました。
+                </p>
+              </article>
             </div>
           </div>
         </section>
@@ -960,7 +986,7 @@
                 <div class="card-number">03</div>
                 <h3 data-i18n="companyThreeTitle">知見の共有</h3>
                 <p data-i18n="companyThreeBody">
-                  代表者は開発組織づくりに関する著書を持ち、国内スタートアップの技術顧問も務めています。
+                  国内スタートアップの技術顧問として、開発組織づくりの知見を継続的に共有しています。
                 </p>
               </article>
             </div>
@@ -976,18 +1002,6 @@
                 <dt data-i18n="profileAddressLabel">所在地</dt>
                 <dd data-i18n="profileAddress">
                   〒150-0043<br />東京都渋谷区道玄坂1丁目10番8号 渋谷道玄坂東急ビル2F−C
-                </dd>
-
-                <dt data-i18n="profileBookLabel">著書</dt>
-                <dd data-i18n="profileBook">
-                  『<a
-                    class="profile-link"
-                    href="https://www.fromculturetocode.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >From Culture to Code: Leading Software Engineering Teams
-                    Effectively</a
-                  >』Apress、2025年
                 </dd>
               </dl>
             </div>
@@ -1092,6 +1106,21 @@
           caseThreeMeta: "大手EC ・ プラットフォーム開発",
           caseThreeBody:
             "日本・フランス・カナダの開発チームを統括。レガシー環境をDocker・Kubernetesへ移行しました。",
+          caseFourMetric: "0 → 1",
+          caseFourMetricLabel: "立ち上げ期の技術支援",
+          caseFourMeta: "スタートアップ ・ 技術顧問",
+          caseFourBody:
+            "創業期の国内スタートアップに対し、アーキテクチャ設計、採用、開発体制づくりを支援しています。",
+          caseFiveMetric: "AIエージェント",
+          caseFiveMetricLabel: "資料をインタラクティブな動画に",
+          caseFiveMeta: "SaaS ・ AIコンテンツ基盤",
+          caseFiveBody:
+            "営業・研修資料から、視聴者がその場で質問できる動画エージェントを生成するAI基盤の開発を継続的に支援しています。",
+          caseSixMetric: "クロスプラットフォーム",
+          caseSixMetricLabel: "ショッピングアプリの設計・開発",
+          caseSixMeta: "比較レビュー ・ モバイルコマース",
+          caseSixBody:
+            "比較レビューサービス向けのReact Native製ECアプリについて、設計から開発までをリードし、リリースまで導きました。",
           profileNameLabel: "会社名",
           profileName: "Fortyone Agency LLC",
           profileFoundedLabel: "設立",
@@ -1099,9 +1128,6 @@
           profileAddressLabel: "所在地",
           profileAddress:
             "〒150-0043<br />東京都渋谷区道玄坂1丁目10番8号 渋谷道玄坂東急ビル2F−C",
-          profileBookLabel: "著書",
-          profileBook:
-            "『<a class=\"profile-link\" href=\"https://www.fromculturetocode.com/\" target=\"_blank\" rel=\"noopener noreferrer\">From Culture to Code: Leading Software Engineering Teams Effectively</a>』Apress、2025年",
           servicesKicker: "支援内容",
           servicesTitle: "技術・組織・AI活用の三方向から、開発を前に進めます。",
           serviceOneTitle: "技術戦略・アーキテクチャ",
@@ -1123,7 +1149,7 @@
             "組織設計から実装まで一貫して関わり、意思決定と現場の実行をつなぎます。",
           companyThreeTitle: "知見の共有",
           companyThreeBody:
-            "代表者は開発組織づくりに関する著書を持ち、国内スタートアップの技術顧問も務めています。",
+            "国内スタートアップの技術顧問として、開発組織づくりの知見を継続的に共有しています。",
           contactKicker: "お問い合わせ",
           contactTitle: "開発組織のご相談は<br />こちら。",
           contactCta: "お問い合わせ",
@@ -1170,6 +1196,21 @@
           caseThreeMeta: "E-commerce · Platform engineering",
           caseThreeBody:
             "Led development teams across Japan, France and Canada, migrating a legacy platform to Docker and Kubernetes.",
+          caseFourMetric: "0 → 1",
+          caseFourMetricLabel: "Early-stage engineering advisory",
+          caseFourMeta: "Startups · Advisory",
+          caseFourBody:
+            "Advising early-stage Japanese startups on architecture, hiring, and building an engineering practice from the ground up.",
+          caseFiveMetric: "AI agents",
+          caseFiveMetricLabel: "Documents into interactive video",
+          caseFiveMeta: "SaaS · AI content platform",
+          caseFiveBody:
+            "Ongoing engineering work on an AI platform that turns sales and training material into interactive video agents viewers can question in real time.",
+          caseSixMetric: "Cross-platform",
+          caseSixMetricLabel: "Shopping app design and build",
+          caseSixMeta: "Consumer review platform · Mobile commerce",
+          caseSixBody:
+            "Led design and development of a React Native e-commerce app for a consumer review platform, from concept through to a shipped product.",
           profileNameLabel: "Company",
           profileName: "Fortyone Agency LLC",
           profileFoundedLabel: "Founded",
@@ -1177,9 +1218,6 @@
           profileAddressLabel: "Address",
           profileAddress:
             "Shibuya Dogenzaka Tokyu Building 2F-C<br />Dogenzaka 1-10-8, Shibuya-ku, Tokyo 150-0043, Japan",
-          profileBookLabel: "Book",
-          profileBook:
-            "<a class=\"profile-link\" href=\"https://www.fromculturetocode.com/\" target=\"_blank\" rel=\"noopener noreferrer\"><em>From Culture to Code: Leading Software Engineering Teams Effectively</em></a> (Apress, 2025)",
           servicesKicker: "How we help",
           servicesTitle: "Moving engineering forward: technology, teams, and AI.",
           serviceOneTitle: "Technical strategy and architecture",
@@ -1201,7 +1239,7 @@
             "Involved from organisation design through to implementation, connecting decisions to what teams actually ship.",
           companyThreeTitle: "Sharing what we learn",
           companyThreeBody:
-            "Our founder authored a book on leading engineering teams and advises Japanese technology startups.",
+            "We advise Japanese technology startups, sharing what we have learned about building engineering teams.",
           contactKicker: "Contact",
           contactTitle: "Let's talk about<br />your engineering team.",
           contactCta: "Contact Us",
