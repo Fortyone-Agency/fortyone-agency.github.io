@@ -111,8 +111,10 @@
         text-transform: uppercase;
       }
 
-      .brand img {
+      .brand img,
+      .brand-logo {
         width: 180px;
+        height: auto;
       }
 
       .nav-links {
@@ -510,7 +512,7 @@
             data-i18n-attr="aria-label"
             data-i18n-key="brandAriaLabel"
           >
-            <img src="logo.svg" alt="Fortyone Agency" />
+            <object data="logo.svg" type="image/svg+xml" class="brand-logo" aria-label="Fortyone Agency logo"></object>
           </a>
           <div class="nav-actions">
             <nav
