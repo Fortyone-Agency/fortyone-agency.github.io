@@ -183,7 +183,10 @@ function build(page, locale, template, translations, tgt) {
   }
 
   // Drop the runtime i18n script entirely — copy is now static.
-  html = html.replace(/\n\s*<script>[\s\S]*?<\/script>\s*(?=<\/body>)/, "\n  ");
+  html = html.replace(
+    /\n\s*<script>(?:(?!<\/script>)[\s\S])*<\/script>\s*(?=<\/body>)/,
+    "\n  "
+  );
 
   return html;
 }

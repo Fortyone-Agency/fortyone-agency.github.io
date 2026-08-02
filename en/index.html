@@ -12,6 +12,15 @@
     <link rel="alternate" hreflang="ja" href="https://www.fortyoneagency.com/" />
     <link rel="alternate" hreflang="en" href="https://www.fortyoneagency.com/en/" />
     <link rel="alternate" hreflang="x-default" href="https://www.fortyoneagency.com/" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-00LYDGETCZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-00LYDGETCZ');
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -77,7 +86,7 @@
         --space-20: 5rem;
         --space-24: 6rem;
 
-        --section-y: clamp(3.5rem, 7vw, 5rem);
+        --section-y: clamp(4rem, 8vw, 6rem);
 
         /* ---- Radius & elevation ---------------------------------------- */
         --radius-sm: 4px;
@@ -264,7 +273,7 @@
       }
 
       .hero {
-        padding: clamp(3.5rem, 8vw, 6rem) 0 var(--section-y);
+        padding: clamp(4rem, 9vw, 7rem) 0 var(--section-y);
       }
 
       h1,
@@ -515,7 +524,7 @@
       }
 
       .clients {
-        padding: var(--space-12) 0;
+        padding: var(--space-16) 0;
         border-top: 1px solid var(--line);
         border-bottom: 1px solid var(--line);
         background: var(--bg-sunken);
@@ -582,11 +591,6 @@
       .marquee-track img:hover {
         filter: grayscale(0);
         opacity: 1;
-      }
-
-      .marquee-track img.teracy-logo {
-        max-height: 1.75rem;
-        max-width: 8rem;
       }
 
       @keyframes marquee-scroll {
@@ -809,11 +813,6 @@
           max-width: 8rem;
         }
 
-        .marquee-track img.teracy-logo {
-          max-height: 1.5rem;
-          max-width: 7rem;
-        }
-
         .footer-top {
           grid-template-columns: 1fr;
           gap: var(--space-8);
@@ -910,7 +909,6 @@
                 <img src="../logos/raksul.png" alt="RAKSUL" loading="lazy" />
                 <img src="../logos/loov.png" alt="LOOV Inc" loading="lazy" />
                 <img src="../logos/canary.png" alt="Canary" loading="lazy" />
-                <img class="teracy-logo" src="../logos/teracy.png" alt="Teracy" loading="lazy" />
               </div>
               <div class="marquee-track" aria-hidden="true">
                 <img src="../logos/mercari.png" alt="" loading="lazy" />
@@ -920,7 +918,6 @@
                 <img src="../logos/raksul.png" alt="" loading="lazy" />
                 <img src="../logos/loov.png" alt="" loading="lazy" />
                 <img src="../logos/canary.png" alt="" loading="lazy" />
-                <img class="teracy-logo" src="../logos/teracy.png" alt="" loading="lazy" />
               </div>
             </div>
           </div>
