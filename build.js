@@ -18,12 +18,34 @@ const path = require("path");
 
 const ORIGIN = "https://www.fortyoneagency.com";
 const ROOT = __dirname;
-const TEMPLATE = path.join(ROOT, "template.html");
+
+/**
+ * Each page is one template rendered once per locale. `dir` is the path
+ * segment appended after the locale root, `prefix` climbs back to the site
+ * root for relative assets.
+ */
+const PAGES = [
+  { template: "template.html", dir: "" },
+  { template: "privacy.template.html", dir: "privacy/" },
+];
 
 const LOCALES = {
-  ja: { out: "index.html", href: `${ORIGIN}/`, prefix: "" },
-  en: { out: path.join("en", "index.html"), href: `${ORIGIN}/en/`, prefix: "../" },
+  ja: { root: "", href: `${ORIGIN}/` },
+  en: { root: "en/", href: `${ORIGIN}/en/` },
 };
+
+/** Output path + canonical URL + asset prefix for one page in one locale. */
+function target(page, locale) {
+  const rel = LOCALES[locale].root + page.dir;
+  const depth = rel.split("/").filter(Boolean).length;
+  return {
+    out: path.join(ROOT, rel, "index.html"),
+    href: `${ORIGIN}/${rel}`,
+    prefix: "../".repeat(depth),
+    // Home in this locale, relative to the current page.
+    home: depth ? "../".repeat(depth - (page.dir ? 1 : 0)) || "./" : "./",
+  };
+}
 
 /** Pull the `translations` object out of the template's inline script. */
 function readTranslations(html) {
@@ -79,36 +101,36 @@ function stripI18nAttrs(html) {
   return html.replace(/\s+data-i18n(?:-attr|-key)?="[^"]*"/g, "");
 }
 
-/** Swap the JS language switcher for static links between the two pages. */
-function buildSwitcher(locale) {
-  const jaHref = locale === "ja" ? "#top" : "../";
-  const enHref = locale === "en" ? "#top" : "en/";
+/** Swap the JS language switcher for static links to this page's counterpart. */
+function buildSwitcher(page, locale) {
+  const href = (l) =>
+    l === locale ? "#top" : `${ORIGIN}/${LOCALES[l].root}${page.dir}`;
   const cls = (active) => `language-button${active ? " is-active" : ""}`;
   const aria = locale === "ja" ? "言語切替" : "Language switcher";
+  const link = (l, label) =>
+    `<a class="${cls(l === locale)}" href="${href(l)}" hreflang="${l}"${
+      l === locale ? ' aria-current="page"' : ""
+    }>${label}</a>`;
   return `<div class="language-switch" role="group" aria-label="${aria}">
-              <a class="${cls(locale === "ja")}" href="${jaHref}" hreflang="ja"${
-    locale === "ja" ? ' aria-current="page"' : ""
-  }>JA</a>
-              <a class="${cls(locale === "en")}" href="${enHref}" hreflang="en"${
-    locale === "en" ? ' aria-current="page"' : ""
-  }>EN</a>
+              ${link("ja", "JA")}
+              ${link("en", "EN")}
             </div>`;
 }
 
-function headTags(locale) {
-  const alts = Object.entries(LOCALES)
-    .map(([l, c]) => `    <link rel="alternate" hreflang="${l}" href="${c.href}" />`)
+function headTags(page, locale) {
+  const url = (l) => `${ORIGIN}/${LOCALES[l].root}${page.dir}`;
+  const alts = Object.keys(LOCALES)
+    .map((l) => `    <link rel="alternate" hreflang="${l}" href="${url(l)}" />`)
     .join("\n");
   return [
-    `    <link rel="canonical" href="${LOCALES[locale].href}" />`,
+    `    <link rel="canonical" href="${url(locale)}" />`,
     alts,
-    `    <link rel="alternate" hreflang="x-default" href="${LOCALES.ja.href}" />`,
+    `    <link rel="alternate" hreflang="x-default" href="${url("ja")}" />`,
   ].join("\n");
 }
 
-function build(locale, template, translations) {
+function build(page, locale, template, translations, tgt) {
   const dict = translations[locale];
-  const cfg = LOCALES[locale];
   let html = template;
 
   html = applyText(html, dict);
@@ -117,7 +139,7 @@ function build(locale, template, translations) {
   // Language switcher -> static links (before stripping i18n attrs).
   html = html.replace(
     /<div\s+class="language-switch"[\s\S]*?<\/div>/,
-    lit(buildSwitcher(locale))
+    lit(buildSwitcher(page, locale))
   );
 
   html = stripI18nAttrs(html);
@@ -135,16 +157,21 @@ function build(locale, template, translations) {
   // Canonical + hreflang, inserted right after the description meta.
   html = html.replace(
     /(<meta\s+name="description"[\s\S]*?\/>)/,
-    `$1\n${headTags(locale)}`
+    `$1\n${headTags(page, locale)}`
   );
 
-  // Asset paths are relative; /en/ needs to climb one level.
+  // Relative assets climb back to the site root.
   // `data` covers the <object> that renders the logo.
-  if (cfg.prefix) {
+  if (tgt.prefix) {
     html = html.replace(
       /(src|href|data)="(logos\/|logo\.svg)/g,
-      `$1="${cfg.prefix}$2`
+      `$1="${tgt.prefix}$2`
     );
+  }
+
+  // Same-page anchors only resolve on the home page; elsewhere point home.
+  if (page.dir) {
+    html = html.replace(/href="#(services|cases|company|top)"/g, `href="${tgt.home}#$1"`);
   }
 
   // Drop the runtime i18n script entirely — copy is now static.
@@ -154,14 +181,23 @@ function build(locale, template, translations) {
 }
 
 function main() {
-  const template = fs.readFileSync(TEMPLATE, "utf8");
-  const translations = readTranslations(template);
+  // The home template owns the shared translations dictionary.
+  const home = fs.readFileSync(path.join(ROOT, PAGES[0].template), "utf8");
+  const translations = readTranslations(home);
 
-  for (const locale of Object.keys(LOCALES)) {
-    const out = path.join(ROOT, LOCALES[locale].out);
-    fs.mkdirSync(path.dirname(out), { recursive: true });
-    fs.writeFileSync(out, build(locale, template, translations), "utf8");
-    console.log(`  ${locale} -> ${path.relative(ROOT, out)}`);
+  for (const page of PAGES) {
+    const template = fs.readFileSync(path.join(ROOT, page.template), "utf8");
+    const dicts = page.dir ? readTranslations(template) : translations;
+    for (const locale of Object.keys(LOCALES)) {
+      const tgt = target(page, locale);
+      fs.mkdirSync(path.dirname(tgt.out), { recursive: true });
+      fs.writeFileSync(
+        tgt.out,
+        build(page, locale, template, dicts, tgt),
+        "utf8"
+      );
+      console.log(`  ${locale} ${page.dir || "/"} -> ${path.relative(ROOT, tgt.out)}`);
+    }
   }
   console.log("done");
 }

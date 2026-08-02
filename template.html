@@ -151,6 +151,12 @@
         height: auto;
       }
 
+      /* <object> hosts its own browsing context, so clicks land inside the SVG
+         document and never reach the wrapping <a>. Let them pass through. */
+      .brand-logo {
+        pointer-events: none;
+      }
+
       .nav-links {
         display: flex;
         align-items: center;
@@ -275,6 +281,7 @@
       .hero-copy p,
       .section-intro p,
       .card p,
+      .service-row p,
       .cta-copy p {
         margin: 0;
         color: var(--muted);
@@ -373,6 +380,40 @@
         margin-bottom: var(--space-3);
         font-size: var(--text-xl);
         line-height: var(--leading-snug);
+      }
+
+      /* Services read as editorial rows rather than a third card grid, so the
+         page doesn't repeat the same bordered-card block three times over. */
+      .service-list {
+        border-top: 1px solid var(--line);
+      }
+
+      .service-row {
+        display: grid;
+        grid-template-columns: 5rem minmax(0, 22ch) minmax(0, 1fr);
+        gap: var(--space-8);
+        align-items: baseline;
+        padding: var(--space-8) 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .service-index {
+        font-size: var(--text-sm);
+        font-weight: 600;
+        font-variant-numeric: tabular-nums;
+        letter-spacing: var(--tracking-widest);
+        color: var(--accent);
+      }
+
+      .service-row h3 {
+        margin: 0;
+        font-size: var(--text-xl);
+        line-height: var(--leading-snug);
+      }
+
+      .service-row p {
+        margin: 0;
+        max-width: 60ch;
       }
 
       .case-grid {
@@ -603,6 +644,34 @@
         border-color: rgba(255, 255, 255, 0.88);
       }
 
+      /* ---- Legal pages (privacy policy) ------------------------------- */
+      .legal-body {
+        max-width: 68ch;
+      }
+
+      .legal-body h2 {
+        margin: var(--space-12) 0 var(--space-4);
+        font-size: var(--text-xl);
+        line-height: var(--leading-snug);
+      }
+
+      .legal-body h2:first-child {
+        margin-top: 0;
+      }
+
+      .legal-body p {
+        margin: 0;
+        color: var(--muted);
+        line-height: var(--leading-normal);
+      }
+
+      .legal-meta {
+        margin-top: var(--space-16) !important;
+        padding-top: var(--space-6);
+        border-top: 1px solid var(--line);
+        font-size: var(--text-sm);
+      }
+
       .site-footer {
         padding: var(--space-16) 0 var(--space-8);
         border-top: 1px solid var(--line);
@@ -666,6 +735,21 @@
         .card-grid,
         .case-grid {
           grid-template-columns: 1fr;
+        }
+
+        /* Title and body stack under the index; the number keeps its column. */
+        .service-row {
+          grid-template-columns: 3.5rem minmax(0, 1fr);
+          gap: var(--space-3) var(--space-6);
+          align-items: start;
+        }
+
+        .service-row h3 {
+          grid-column: 2;
+        }
+
+        .service-row p {
+          grid-column: 2;
         }
 
         .cta-panel {
@@ -751,7 +835,13 @@
             data-i18n-attr="aria-label"
             data-i18n-key="brandAriaLabel"
           >
-            <object data="logo.svg" type="image/svg+xml" class="brand-logo" aria-label="Fortyone Agency logo"></object>
+            <object
+              data="logo.svg"
+              type="image/svg+xml"
+              class="brand-logo"
+              aria-hidden="true"
+              tabindex="-1"
+            ></object>
           </a>
           <div class="nav-actions">
             <nav
@@ -845,23 +935,23 @@
               </div>
             </div>
 
-            <div class="card-grid">
-              <article class="card">
-                <div class="card-number">01</div>
+            <div class="service-list">
+              <article class="service-row">
+                <div class="service-index" aria-hidden="true">01</div>
                 <h3 data-i18n="serviceOneTitle">技術戦略・アーキテクチャ</h3>
                 <p data-i18n="serviceOneBody">
                   技術選定、システム設計、レガシー刷新の方針を整理し、意思決定を支えます。
                 </p>
               </article>
-              <article class="card">
-                <div class="card-number">02</div>
+              <article class="service-row">
+                <div class="service-index" aria-hidden="true">02</div>
                 <h3 data-i18n="serviceTwoTitle">開発組織づくり</h3>
                 <p data-i18n="serviceTwoBody">
                   チーム構成、採用、育成、開発プロセスの設計。分散チームの立ち上げも支援します。
                 </p>
               </article>
-              <article class="card">
-                <div class="card-number">03</div>
+              <article class="service-row">
+                <div class="service-index" aria-hidden="true">03</div>
                 <h3 data-i18n="serviceThreeTitle">AI活用の推進</h3>
                 <p data-i18n="serviceThreeBody">
                   開発現場へのAIツールの導入と、LLMを活用した機能の設計・実装。評価と運用の仕組みまで整えます。
@@ -876,7 +966,7 @@
             <div class="section-head">
               <div class="section-intro">
                 <div class="section-kicker" data-i18n="casesKicker">実績</div>
-                <h2 data-i18n="casesTitle">組織とプロダクト、両面での実績。</h2>
+                <h2 data-i18n="casesTitle">業界を問わない実績。</h2>
               </div>
             </div>
 
@@ -915,7 +1005,7 @@
                   大手EC ・ プラットフォーム開発
                 </div>
                 <p data-i18n="caseThreeBody">
-                  日本・フランス・カナダの開発チームを統括。レガシー環境をDocker・Kubernetesへ移行しました。
+                  3大陸にまたがる開発チームを統括。レガシー環境をDocker・Kubernetesへ移行しました。
                 </p>
               </article>
               <article class="case">
@@ -1022,7 +1112,7 @@
                 >
                   お問い合わせ
                 </div>
-                <h2 data-i18n="contactTitle">開発組織のご相談は<br />こちら。</h2>
+                <h2 data-i18n="contactTitle">まずはご相談ください。</h2>
               </div>
               <div class="cta-actions">
                 <a
@@ -1062,6 +1152,7 @@
                 <a href="#services" data-i18n="navServices">支援内容</a>
                 <a href="#cases" data-i18n="navCases">実績</a>
                 <a href="#company" data-i18n="navCompany">会社情報</a>
+                <a href="privacy/" data-i18n="footerPrivacyLink">プライバシーポリシー</a>
               </nav>
             </div>
           </div>
@@ -1093,7 +1184,7 @@
           heroPrimaryCta: "お問い合わせ",
           clientsLabel: "在籍・支援した企業",
           casesKicker: "実績",
-          casesTitle: "組織とプロダクト、両面での実績。",
+          casesTitle: "業界を問わない実績。",
           caseOneMetric: "480万+",
           caseOneMetricLabel: "月間アクティブユーザー",
           caseOneMeta: "大手フリマアプリ ・ Web / モバイル",
@@ -1108,7 +1199,7 @@
           caseThreeMetricLabel: "分散チームの統括",
           caseThreeMeta: "大手EC ・ プラットフォーム開発",
           caseThreeBody:
-            "日本・フランス・カナダの開発チームを統括。レガシー環境をDocker・Kubernetesへ移行しました。",
+            "3大陸にまたがる開発チームを統括。レガシー環境をDocker・Kubernetesへ移行しました。",
           caseFourMetric: "0 → 1",
           caseFourMetricLabel: "立ち上げ期の技術支援",
           caseFourMeta: "スタートアップ ・ 技術顧問",
@@ -1156,17 +1247,14 @@
           companyThreeBody:
             "国内スタートアップの技術顧問として、開発組織づくりの知見を継続的に共有しています。",
           contactKicker: "お問い合わせ",
-          contactTitle: "開発組織のご相談は<br />こちら。",
+          contactTitle: "まずはご相談ください。",
           contactCta: "お問い合わせ",
           footerAddress:
             "〒150-0043<br />東京都渋谷区道玄坂1丁目10番8号<br />渋谷道玄坂東急ビル2F−C",
           footerContactLink: "お問い合わせ",
+          footerPrivacyLink: "プライバシーポリシー",
           footerNavLabel: "フッターナビゲーション",
           footerCopyright: "© 2026 Fortyone Agency LLC. All rights reserved.",
-          contactListAriaLabel: "初回相談でよくあるテーマ",
-          contactPointOne: "どこから始めるべきか知りたい",
-          contactPointTwo: "PoCから本番導入へ進めたい",
-          contactPointThree: "組織に定着させたい",
         },
         en: {
           pageTitle: "Fortyone Agency | Engineering leadership and delivery",
@@ -1185,7 +1273,7 @@
           heroPrimaryCta: "Contact Us",
           clientsLabel: "Where we've worked and advised",
           casesKicker: "Our Work",
-          casesTitle: "Results across teams and products.",
+          casesTitle: "Results across industries.",
           caseOneMetric: "4.8M+",
           caseOneMetricLabel: "Monthly active users",
           caseOneMeta: "Marketplace · Web and mobile",
@@ -1200,7 +1288,7 @@
           caseThreeMetricLabel: "Distributed teams led",
           caseThreeMeta: "E-commerce · Platform engineering",
           caseThreeBody:
-            "Led development teams across Japan, France and Canada, migrating a legacy platform to Docker and Kubernetes.",
+            "Led development teams across three continents, migrating a legacy platform to Docker and Kubernetes.",
           caseFourMetric: "0 → 1",
           caseFourMetricLabel: "Early-stage engineering advisory",
           caseFourMeta: "Startups · Advisory",
@@ -1248,17 +1336,14 @@
           companyThreeBody:
             "We advise Japanese technology startups, sharing what we have learned about building engineering teams.",
           contactKicker: "Contact",
-          contactTitle: "Let's talk about<br />your engineering team.",
+          contactTitle: "Let's talk.",
           contactCta: "Contact Us",
           footerAddress:
             "Shibuya Dogenzaka Tokyu Building 2F-C<br />Dogenzaka 1-10-8<br />Shibuya-ku, Tokyo 150-0043<br />Japan",
           footerContactLink: "Contact Us",
+          footerPrivacyLink: "Privacy Policy",
           footerNavLabel: "Footer navigation",
           footerCopyright: "© 2026 Fortyone Agency LLC. All rights reserved.",
-          contactListAriaLabel: "Common topics for an initial conversation",
-          contactPointOne: "Figure out where to begin",
-          contactPointTwo: "Move from PoC to production",
-          contactPointThree: "Make adoption stick across the organization",
         },
       };
 

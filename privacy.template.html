@@ -8,10 +8,6 @@
       name="description"
       content="Fortyone Agencyは、技術戦略から開発組織づくり、実装までを一貫して支援するソフトウェアコンサルティングです。東京拠点。"
     />
-    <link rel="canonical" href="https://www.fortyoneagency.com/" />
-    <link rel="alternate" hreflang="ja" href="https://www.fortyoneagency.com/" />
-    <link rel="alternate" hreflang="en" href="https://www.fortyoneagency.com/en/" />
-    <link rel="alternate" hreflang="x-default" href="https://www.fortyoneagency.com/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -836,6 +832,8 @@
             class="brand"
             href="#top"
             aria-label="Fortyone Agency home"
+            data-i18n-attr="aria-label"
+            data-i18n-key="brandAriaLabel"
           >
             <object
               data="logo.svg"
@@ -849,214 +847,86 @@
             <nav
               class="nav-links"
               aria-label="グローバルナビゲーション"
+              data-i18n-attr="aria-label"
+              data-i18n-key="navAriaLabel"
             >
-              <a href="#services">支援内容</a>
-              <a href="#cases">実績</a>
-              <a href="#company">会社情報</a>
+              <a href="#services" data-i18n="navServices">支援内容</a>
+              <a href="#cases" data-i18n="navCases">実績</a>
+              <a href="#company" data-i18n="navCompany">会社情報</a>
               <a
                 class="button button-secondary"
                 href="https://forms.gle/3dkUV9m5ZY8dhi1JA"
                 target="_blank"
                 rel="noopener noreferrer"
+                data-i18n="navContact"
                 >お問い合わせ</a
               >
             </nav>
-            <div class="language-switch" role="group" aria-label="言語切替">
-              <a class="language-button is-active" href="#top" hreflang="ja" aria-current="page">JA</a>
-              <a class="language-button" href="https://www.fortyoneagency.com/en/" hreflang="en">EN</a>
+            <div
+              class="language-switch"
+              role="group"
+              aria-label="Language switcher"
+              data-i18n-attr="aria-label"
+              data-i18n-key="languageSwitcherLabel"
+            >
+              <button class="language-button is-active" type="button" data-lang="ja">JA</button>
+              <button class="language-button" type="button" data-lang="en">EN</button>
             </div>
           </div>
         </div>
       </header>
 
       <main id="top">
-        <section class="hero">
-          <div class="container">
-            <div class="hero-copy">
-              <h1>開発組織を強くし、プロダクトを前に進める。</h1>
-              <p class="lead">国内大手テック企業で開発組織を率い、スタートアップの立ち上げにも携わってきた知見をもとに、技術戦略から組織設計、実装まで一貫して支援します。</p>
-              <div class="hero-actions">
-                <a
-                  class="button button-primary"
-                  href="https://forms.gle/3dkUV9m5ZY8dhi1JA"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >お問い合わせ</a
-                >
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="clients" aria-labelledby="clients-label">
-          <div class="container">
-            <div class="clients-label" id="clients-label">在籍・支援した企業</div>
-            <div class="marquee">
-              <div class="marquee-track">
-                <img src="logos/mercari.png" alt="Mercari" loading="lazy" />
-                <img src="logos/rakuten.png" alt="Rakuten" loading="lazy" />
-                <img src="logos/drivemode.png" alt="Drivemode" loading="lazy" />
-                <img src="logos/mybest.png" alt="mybest" loading="lazy" />
-                <img src="logos/raksul.png" alt="RAKSUL" loading="lazy" />
-                <img src="logos/loov.png" alt="LOOV Inc" loading="lazy" />
-                <img src="logos/canary.png" alt="Canary" loading="lazy" />
-              </div>
-              <div class="marquee-track" aria-hidden="true">
-                <img src="logos/mercari.png" alt="" loading="lazy" />
-                <img src="logos/rakuten.png" alt="" loading="lazy" />
-                <img src="logos/drivemode.png" alt="" loading="lazy" />
-                <img src="logos/mybest.png" alt="" loading="lazy" />
-                <img src="logos/raksul.png" alt="" loading="lazy" />
-                <img src="logos/loov.png" alt="" loading="lazy" />
-                <img src="logos/canary.png" alt="" loading="lazy" />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="services">
+        <section class="legal">
           <div class="container">
             <div class="section-head">
               <div class="section-intro">
-                <div class="section-kicker">支援内容</div>
-                <h2>技術・組織・AI活用の三方向から、開発を前に進めます。</h2>
+                <div class="section-kicker" data-i18n="privacyKicker">プライバシーポリシー</div>
+                <h1 data-i18n="privacyTitle">個人情報の取り扱いについて</h1>
               </div>
             </div>
 
-            <div class="service-list">
-              <article class="service-row">
-                <div class="service-index" aria-hidden="true">01</div>
-                <h3>技術戦略・アーキテクチャ</h3>
-                <p>技術選定、システム設計、レガシー刷新の方針を整理し、意思決定を支えます。</p>
-              </article>
-              <article class="service-row">
-                <div class="service-index" aria-hidden="true">02</div>
-                <h3>開発組織づくり</h3>
-                <p>チーム構成、採用、育成、開発プロセスの設計。分散チームの立ち上げも支援します。</p>
-              </article>
-              <article class="service-row">
-                <div class="service-index" aria-hidden="true">03</div>
-                <h3>AI活用の推進</h3>
-                <p>開発現場へのAIツールの導入と、LLMを活用した機能の設計・実装。評価と運用の仕組みまで整えます。</p>
-              </article>
-            </div>
-          </div>
-        </section>
+            <div class="legal-body">
+              <p data-i18n="privacyIntro">
+                Fortyone Agency LLC（以下「当社」）は、お客様の個人情報の保護を重要な責務と考え、以下の方針に基づき適切に取り扱います。
+              </p>
 
-        <section id="cases">
-          <div class="container">
-            <div class="section-head">
-              <div class="section-intro">
-                <div class="section-kicker">実績</div>
-                <h2>業界を問わない実績。</h2>
-              </div>
-            </div>
+              <h2 data-i18n="privacyCollectHeading">1. 取得する情報</h2>
+              <p data-i18n="privacyCollectBody">
+                当社は、お問い合わせフォームを通じてご入力いただいたお名前、メールアドレス、会社名、お問い合わせ内容などの情報を取得します。当ウェブサイトでは、Cookieによる追跡やアクセス解析ツールの利用は行っていません。
+              </p>
 
-            <div class="case-grid">
-              <article class="case">
-                <div class="case-metric">480万+</div>
-                <div class="case-metric-label">月間アクティブユーザー</div>
-                <div class="case-meta">大手フリマアプリ ・ Web / モバイル</div>
-                <p>React・Next.js・GraphQLでWebサイトを刷新。モバイルアプリもReact Nativeで全面的に作り直しました。</p>
-              </article>
-              <article class="case">
-                <div class="case-metric">+25%</div>
-                <div class="case-metric-label">開発組織の拡大</div>
-                <div class="case-meta">モビリティ ・ 組織設計</div>
-                <p>大手自動車メーカー向け車載ソフトウェアの開発組織を再編・拡大。開発プロセスの近代化も進めました。</p>
-              </article>
-              <article class="case">
-                <div class="case-metric">3拠点</div>
-                <div class="case-metric-label">分散チームの統括</div>
-                <div class="case-meta">大手EC ・ プラットフォーム開発</div>
-                <p>3大陸にまたがる開発チームを統括。レガシー環境をDocker・Kubernetesへ移行しました。</p>
-              </article>
-              <article class="case">
-                <div class="case-metric">0 → 1</div>
-                <div class="case-metric-label">立ち上げ期の技術支援</div>
-                <div class="case-meta">スタートアップ ・ 技術顧問</div>
-                <p>創業期の国内スタートアップに対し、アーキテクチャ設計、採用、開発体制づくりを支援しています。</p>
-              </article>
-              <article class="case">
-                <div class="case-metric">AIエージェント</div>
-                <div class="case-metric-label">資料をインタラクティブな動画に</div>
-                <div class="case-meta">SaaS ・ AIコンテンツ基盤</div>
-                <p>営業・研修資料から、視聴者がその場で質問できる動画エージェントを生成するAI基盤の開発を継続的に支援しています。</p>
-              </article>
-              <article class="case">
-                <div class="case-metric">クロスプラットフォーム</div>
-                <div class="case-metric-label">ショッピングアプリの設計・開発</div>
-                <div class="case-meta">比較レビュー ・ モバイルコマース</div>
-                <p>比較レビューサービス向けのReact Native製ECアプリについて、設計から開発までをリードし、リリースまで導きました。</p>
-              </article>
-            </div>
-          </div>
-        </section>
+              <h2 data-i18n="privacyUseHeading">2. 利用目的</h2>
+              <p data-i18n="privacyUseBody">
+                取得した情報は、お問い合わせへの回答、ご依頼内容の確認、およびサービス提供に関するご連絡のためにのみ利用します。これらの目的以外には利用しません。
+              </p>
 
-        <section id="company">
-          <div class="container">
-            <div class="section-head">
-              <div class="section-intro">
-                <div class="section-kicker">会社情報</div>
-                <h2>Fortyone Agencyについて</h2>
-              </div>
-            </div>
+              <h2 data-i18n="privacyThirdPartyHeading">3. 第三者提供</h2>
+              <p data-i18n="privacyThirdPartyBody">
+                法令に基づく場合を除き、ご本人の同意なく第三者に個人情報を提供または販売することはありません。
+              </p>
 
-            <div class="card-grid">
-              <article class="card">
-                <div class="card-number">01</div>
-                <h3>25年以上の開発経験</h3>
-                <p>国内大手テック企業やモビリティ企業で、エンジニアリング責任者として開発組織を率いてきました。</p>
-              </article>
-              <article class="card">
-                <div class="card-number">02</div>
-                <h3>経営と現場、両方の視点</h3>
-                <p>組織設計から実装まで一貫して関わり、意思決定と現場の実行をつなぎます。</p>
-              </article>
-              <article class="card">
-                <div class="card-number">03</div>
-                <h3>知見の共有</h3>
-                <p>国内スタートアップの技術顧問として、開発組織づくりの知見を継続的に共有しています。</p>
-              </article>
-            </div>
+              <h2 data-i18n="privacyExternalHeading">4. 外部サービスの利用</h2>
+              <p data-i18n="privacyExternalBody">
+                お問い合わせにはGoogleフォームを利用しており、ご入力内容はGoogle LLCのサーバーに保存されます。また、当ウェブサイトはGoogle Fontsを利用しているため、フォント配信の過程でお客様のIPアドレスがGoogle LLCに送信されます。これらのサービスにおける情報の取り扱いは、Google社のプライバシーポリシーに従います。
+              </p>
 
-            <div class="profile">
-              <dl>
-                <dt>会社名</dt>
-                <dd>Fortyone Agency LLC</dd>
+              <h2 data-i18n="privacyRetentionHeading">5. 保管期間</h2>
+              <p data-i18n="privacyRetentionBody">
+                取得した情報は、利用目的の達成に必要な期間を超えて保管しません。不要となった情報は適切に削除します。
+              </p>
 
-                <dt>設立</dt>
-                <dd>2024年7月1日</dd>
+              <h2 data-i18n="privacyRightsHeading">6. 開示・訂正・削除のご請求</h2>
+              <p data-i18n="privacyRightsBody">
+                ご本人からの個人情報の開示、訂正、利用停止、削除のご請求に対しては、ご本人であることを確認のうえ、合理的な期間内に対応します。お問い合わせフォームよりご連絡ください。
+              </p>
 
-                <dt>資本金</dt>
-                <dd>100万円</dd>
+              <h2 data-i18n="privacyContactHeading">7. お問い合わせ窓口</h2>
+              <p data-i18n="privacyContactBody">
+                本方針に関するお問い合わせは、お問い合わせフォームよりご連絡ください。
+              </p>
 
-                <dt>所在地</dt>
-                <dd>〒150-0043<br />東京都渋谷区道玄坂1丁目10番8号 渋谷道玄坂東急ビル2F−C</dd>
-              </dl>
-            </div>
-          </div>
-        </section>
-
-        <section class="cta" id="contact">
-          <div class="container">
-            <div class="cta-panel">
-              <div class="cta-copy">
-                <div
-                  class="section-kicker"
-                  style="color: var(--accent-warm)"
-                >お問い合わせ</div>
-                <h2>まずはご相談ください。</h2>
-              </div>
-              <div class="cta-actions">
-                <a
-                  class="button button-primary"
-                  href="https://forms.gle/3dkUV9m5ZY8dhi1JA"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >お問い合わせ</a
-                >
-              </div>
+              <p class="legal-meta" data-i18n="privacyUpdated">最終更新日：2026年8月2日</p>
             </div>
           </div>
         </section>
@@ -1067,33 +937,127 @@
           <div class="footer-top">
             <div class="footer-brand">
               <div class="footer-name">Fortyone Agency LLC</div>
-              <address class="footer-address">〒150-0043<br />東京都渋谷区道玄坂1丁目10番8号<br />渋谷道玄坂東急ビル2F−C</address>
+              <address class="footer-address" data-i18n="footerAddress">
+                〒150-0043<br />東京都渋谷区道玄坂1丁目10番8号<br />渋谷道玄坂東急ビル2F−C
+              </address>
             </div>
 
             <div class="footer-col">
               <nav class="footer-links" aria-labelledby="footer-nav-label">
-                <span id="footer-nav-label" hidden>フッターナビゲーション</span>
+                <span id="footer-nav-label" hidden data-i18n="footerNavLabel">フッターナビゲーション</span>
                 <a
                   href="https://forms.gle/3dkUV9m5ZY8dhi1JA"
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-i18n="footerContactLink"
                   >お問い合わせ</a
                 >
-                <a href="#services">支援内容</a>
-                <a href="#cases">実績</a>
-                <a href="#company">会社情報</a>
-                <a href="privacy/">プライバシーポリシー</a>
+                <a href="#services" data-i18n="navServices">支援内容</a>
+                <a href="#cases" data-i18n="navCases">実績</a>
+                <a href="#company" data-i18n="navCompany">会社情報</a>
               </nav>
             </div>
           </div>
 
           <div class="footer-bottom">
-            <small
+            <small data-i18n="footerCopyright"
               >© 2026 Fortyone Agency LLC. All rights reserved.</small
             >
           </div>
         </div>
       </footer>
     </div>
+    <script>
+      const translations = {
+        ja: {
+          pageTitle: "プライバシーポリシー | Fortyone Agency",
+          metaDescription:
+            "Fortyone Agency LLCの個人情報の取り扱いについて。当サイトはCookieによる追跡やアクセス解析を行っていません。",
+          brandAriaLabel: "Fortyone Agency ホーム",
+          languageSwitcherLabel: "言語切替",
+          navAriaLabel: "グローバルナビゲーション",
+          navServices: "支援内容",
+          navCases: "実績",
+          navCompany: "会社情報",
+          navContact: "お問い合わせ",
+          privacyKicker: "プライバシーポリシー",
+          privacyTitle: "個人情報の取り扱いについて",
+          privacyIntro:
+            "Fortyone Agency LLC（以下「当社」）は、お客様の個人情報の保護を重要な責務と考え、以下の方針に基づき適切に取り扱います。",
+          privacyCollectHeading: "1. 取得する情報",
+          privacyCollectBody:
+            "当社は、お問い合わせフォームを通じてご入力いただいたお名前、メールアドレス、会社名、お問い合わせ内容などの情報を取得します。当ウェブサイトでは、Cookieによる追跡やアクセス解析ツールの利用は行っていません。",
+          privacyUseHeading: "2. 利用目的",
+          privacyUseBody:
+            "取得した情報は、お問い合わせへの回答、ご依頼内容の確認、およびサービス提供に関するご連絡のためにのみ利用します。これらの目的以外には利用しません。",
+          privacyThirdPartyHeading: "3. 第三者提供",
+          privacyThirdPartyBody:
+            "法令に基づく場合を除き、ご本人の同意なく第三者に個人情報を提供または販売することはありません。",
+          privacyExternalHeading: "4. 外部サービスの利用",
+          privacyExternalBody:
+            "お問い合わせにはGoogleフォームを利用しており、ご入力内容はGoogle LLCのサーバーに保存されます。また、当ウェブサイトはGoogle Fontsを利用しているため、フォント配信の過程でお客様のIPアドレスがGoogle LLCに送信されます。これらのサービスにおける情報の取り扱いは、Google社のプライバシーポリシーに従います。",
+          privacyRetentionHeading: "5. 保管期間",
+          privacyRetentionBody:
+            "取得した情報は、利用目的の達成に必要な期間を超えて保管しません。不要となった情報は適切に削除します。",
+          privacyRightsHeading: "6. 開示・訂正・削除のご請求",
+          privacyRightsBody:
+            "ご本人からの個人情報の開示、訂正、利用停止、削除のご請求に対しては、ご本人であることを確認のうえ、合理的な期間内に対応します。お問い合わせフォームよりご連絡ください。",
+          privacyContactHeading: "7. お問い合わせ窓口",
+          privacyContactBody:
+            "本方針に関するお問い合わせは、お問い合わせフォームよりご連絡ください。",
+          privacyUpdated: "最終更新日：2026年8月2日",
+          footerAddress:
+            "〒150-0043<br />東京都渋谷区道玄坂1丁目10番8号<br />渋谷道玄坂東急ビル2F−C",
+          footerContactLink: "お問い合わせ",
+          footerPrivacyLink: "プライバシーポリシー",
+          footerNavLabel: "フッターナビゲーション",
+          footerCopyright: "© 2026 Fortyone Agency LLC. All rights reserved.",
+        },
+        en: {
+          pageTitle: "Privacy Policy | Fortyone Agency",
+          metaDescription:
+            "How Fortyone Agency LLC handles personal information. This site uses no cookies and no analytics tracking.",
+          brandAriaLabel: "Fortyone Agency home",
+          languageSwitcherLabel: "Language switcher",
+          navAriaLabel: "Global navigation",
+          navServices: "How we help",
+          navCases: "Our Work",
+          navCompany: "Company",
+          navContact: "Contact Us",
+          privacyKicker: "Privacy Policy",
+          privacyTitle: "How we handle personal information",
+          privacyIntro:
+            "Fortyone Agency LLC (\"we\") treats the protection of personal information as a core responsibility and handles it according to the policy set out below.",
+          privacyCollectHeading: "1. Information we collect",
+          privacyCollectBody:
+            "We collect the name, email address, company name, and enquiry details you provide through our contact form. This website does not use cookies for tracking, and we run no analytics tools.",
+          privacyUseHeading: "2. How we use it",
+          privacyUseBody:
+            "We use the information solely to respond to your enquiry, clarify what you are asking for, and communicate about the provision of our services. We do not use it for any other purpose.",
+          privacyThirdPartyHeading: "3. Sharing with third parties",
+          privacyThirdPartyBody:
+            "We do not sell or disclose personal information to third parties without your consent, except where required by law.",
+          privacyExternalHeading: "4. External services",
+          privacyExternalBody:
+            "Our contact form is provided by Google Forms, so submissions are stored on servers operated by Google LLC. This website also loads Google Fonts, which means your IP address is sent to Google LLC as part of delivering those fonts. Information handled by these services is subject to Google's own privacy policy.",
+          privacyRetentionHeading: "5. Retention",
+          privacyRetentionBody:
+            "We keep information no longer than necessary to fulfil the purposes above, and delete it appropriately once it is no longer needed.",
+          privacyRightsHeading: "6. Access, correction and deletion",
+          privacyRightsBody:
+            "If you ask us to disclose, correct, suspend the use of, or delete your personal information, we will verify your identity and respond within a reasonable period. Please get in touch via the contact form.",
+          privacyContactHeading: "7. Contact",
+          privacyContactBody:
+            "For any questions about this policy, please get in touch via the contact form.",
+          privacyUpdated: "Last updated: 2 August 2026",
+          footerAddress:
+            "Shibuya Dogenzaka Tokyu Building 2F-C<br />Dogenzaka 1-10-8<br />Shibuya-ku, Tokyo 150-0043<br />Japan",
+          footerContactLink: "Contact Us",
+          footerPrivacyLink: "Privacy Policy",
+          footerNavLabel: "Footer navigation",
+          footerCopyright: "© 2026 Fortyone Agency LLC. All rights reserved.",
+        },
+      };
+    </script>
   </body>
 </html>

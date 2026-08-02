@@ -21,10 +21,25 @@ node build.js
 
 That regenerates:
 
-| Output          | Locale   | Canonical URL                        |
-| --------------- | -------- | ------------------------------------ |
-| `index.html`    | Japanese | `https://www.fortyoneagency.com/`    |
-| `en/index.html` | English  | `https://www.fortyoneagency.com/en/` |
+| Output                  | Locale   | Canonical URL                                |
+| ----------------------- | -------- | -------------------------------------------- |
+| `index.html`            | Japanese | `https://www.fortyoneagency.com/`            |
+| `en/index.html`         | English  | `https://www.fortyoneagency.com/en/`         |
+| `privacy/index.html`    | Japanese | `https://www.fortyoneagency.com/privacy/`    |
+| `en/privacy/index.html` | English  | `https://www.fortyoneagency.com/en/privacy/` |
+
+## Pages
+
+`PAGES` in `build.js` lists the templates; each is rendered once per locale.
+`template.html` is the home page and owns the shared translations dictionary
+and the stylesheet. `privacy.template.html` is the privacy policy and carries
+its own dictionary.
+
+**The stylesheet lives in `template.html`.** If you change it, copy the
+`<style>` block into `privacy.template.html` too — they are kept in sync by
+hand.
+
+Adding `sitemap.xml` entries for new pages is also manual.
 
 ## Why two files
 

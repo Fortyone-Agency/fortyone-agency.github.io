@@ -155,6 +155,12 @@
         height: auto;
       }
 
+      /* <object> hosts its own browsing context, so clicks land inside the SVG
+         document and never reach the wrapping <a>. Let them pass through. */
+      .brand-logo {
+        pointer-events: none;
+      }
+
       .nav-links {
         display: flex;
         align-items: center;
@@ -279,6 +285,7 @@
       .hero-copy p,
       .section-intro p,
       .card p,
+      .service-row p,
       .cta-copy p {
         margin: 0;
         color: var(--muted);
@@ -377,6 +384,40 @@
         margin-bottom: var(--space-3);
         font-size: var(--text-xl);
         line-height: var(--leading-snug);
+      }
+
+      /* Services read as editorial rows rather than a third card grid, so the
+         page doesn't repeat the same bordered-card block three times over. */
+      .service-list {
+        border-top: 1px solid var(--line);
+      }
+
+      .service-row {
+        display: grid;
+        grid-template-columns: 5rem minmax(0, 22ch) minmax(0, 1fr);
+        gap: var(--space-8);
+        align-items: baseline;
+        padding: var(--space-8) 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .service-index {
+        font-size: var(--text-sm);
+        font-weight: 600;
+        font-variant-numeric: tabular-nums;
+        letter-spacing: var(--tracking-widest);
+        color: var(--accent);
+      }
+
+      .service-row h3 {
+        margin: 0;
+        font-size: var(--text-xl);
+        line-height: var(--leading-snug);
+      }
+
+      .service-row p {
+        margin: 0;
+        max-width: 60ch;
       }
 
       .case-grid {
@@ -607,6 +648,34 @@
         border-color: rgba(255, 255, 255, 0.88);
       }
 
+      /* ---- Legal pages (privacy policy) ------------------------------- */
+      .legal-body {
+        max-width: 68ch;
+      }
+
+      .legal-body h2 {
+        margin: var(--space-12) 0 var(--space-4);
+        font-size: var(--text-xl);
+        line-height: var(--leading-snug);
+      }
+
+      .legal-body h2:first-child {
+        margin-top: 0;
+      }
+
+      .legal-body p {
+        margin: 0;
+        color: var(--muted);
+        line-height: var(--leading-normal);
+      }
+
+      .legal-meta {
+        margin-top: var(--space-16) !important;
+        padding-top: var(--space-6);
+        border-top: 1px solid var(--line);
+        font-size: var(--text-sm);
+      }
+
       .site-footer {
         padding: var(--space-16) 0 var(--space-8);
         border-top: 1px solid var(--line);
@@ -670,6 +739,21 @@
         .card-grid,
         .case-grid {
           grid-template-columns: 1fr;
+        }
+
+        /* Title and body stack under the index; the number keeps its column. */
+        .service-row {
+          grid-template-columns: 3.5rem minmax(0, 1fr);
+          gap: var(--space-3) var(--space-6);
+          align-items: start;
+        }
+
+        .service-row h3 {
+          grid-column: 2;
+        }
+
+        .service-row p {
+          grid-column: 2;
         }
 
         .cta-panel {
@@ -753,7 +837,13 @@
             href="#top"
             aria-label="Fortyone Agency home"
           >
-            <object data="../logo.svg" type="image/svg+xml" class="brand-logo" aria-label="Fortyone Agency logo"></object>
+            <object
+              data="../logo.svg"
+              type="image/svg+xml"
+              class="brand-logo"
+              aria-hidden="true"
+              tabindex="-1"
+            ></object>
           </a>
           <div class="nav-actions">
             <nav
@@ -772,7 +862,7 @@
               >
             </nav>
             <div class="language-switch" role="group" aria-label="Language switcher">
-              <a class="language-button" href="../" hreflang="ja">JA</a>
+              <a class="language-button" href="https://www.fortyoneagency.com/" hreflang="ja">JA</a>
               <a class="language-button is-active" href="#top" hreflang="en" aria-current="page">EN</a>
             </div>
           </div>
@@ -833,19 +923,19 @@
               </div>
             </div>
 
-            <div class="card-grid">
-              <article class="card">
-                <div class="card-number">01</div>
+            <div class="service-list">
+              <article class="service-row">
+                <div class="service-index" aria-hidden="true">01</div>
                 <h3>Technical strategy and architecture</h3>
                 <p>Technology selection, system design, and legacy modernisation — clarified to support real decisions.</p>
               </article>
-              <article class="card">
-                <div class="card-number">02</div>
+              <article class="service-row">
+                <div class="service-index" aria-hidden="true">02</div>
                 <h3>Building engineering teams</h3>
                 <p>Team structure, hiring, mentoring, and development process. Including setting up distributed teams.</p>
               </article>
-              <article class="card">
-                <div class="card-number">03</div>
+              <article class="service-row">
+                <div class="service-index" aria-hidden="true">03</div>
                 <h3>Putting AI to work</h3>
                 <p>Adopting AI tooling across your engineering workflow, and designing and building LLM-backed features — including how they are evaluated and run.</p>
               </article>
@@ -858,7 +948,7 @@
             <div class="section-head">
               <div class="section-intro">
                 <div class="section-kicker">Our Work</div>
-                <h2>Results across teams and products.</h2>
+                <h2>Results across industries.</h2>
               </div>
             </div>
 
@@ -879,7 +969,7 @@
                 <div class="case-metric">3 sites</div>
                 <div class="case-metric-label">Distributed teams led</div>
                 <div class="case-meta">E-commerce · Platform engineering</div>
-                <p>Led development teams across Japan, France and Canada, migrating a legacy platform to Docker and Kubernetes.</p>
+                <p>Led development teams across three continents, migrating a legacy platform to Docker and Kubernetes.</p>
               </article>
               <article class="case">
                 <div class="case-metric">0 → 1</div>
@@ -956,7 +1046,7 @@
                   class="section-kicker"
                   style="color: var(--accent-warm)"
                 >Contact</div>
-                <h2>Let's talk about<br />your engineering team.</h2>
+                <h2>Let's talk.</h2>
               </div>
               <div class="cta-actions">
                 <a
@@ -992,6 +1082,7 @@
                 <a href="#services">How we help</a>
                 <a href="#cases">Our Work</a>
                 <a href="#company">Company</a>
+                <a href="privacy/">Privacy Policy</a>
               </nav>
             </div>
           </div>

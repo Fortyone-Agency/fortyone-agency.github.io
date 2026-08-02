@@ -15,4 +15,16 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.fortyoneagency.com/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.fortyoneagency.com/" />
   </url>
+  <url>
+    <loc>https://www.fortyoneagency.com/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.fortyoneagency.com/privacy/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.fortyoneagency.com/en/privacy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.fortyoneagency.com/privacy/" />
+  </url>
+  <url>
+    <loc>https://www.fortyoneagency.com/en/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.fortyoneagency.com/privacy/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.fortyoneagency.com/en/privacy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.fortyoneagency.com/privacy/" />
+  </url>
 </urlset>
