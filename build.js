@@ -134,6 +134,8 @@ function build(page, locale, template, translations, tgt) {
   let html = template;
 
   html = applyText(html, dict);
+  // {{year}} is stamped at build time so the copyright never goes stale.
+  html = html.replace(/\{\{year\}\}/g, String(new Date().getFullYear()));
   html = applyAttrs(html, dict);
 
   // Language switcher -> static links (before stripping i18n attrs).

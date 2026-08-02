@@ -41,6 +41,16 @@ hand.
 
 Adding `sitemap.xml` entries for new pages is also manual.
 
+## Placeholders
+
+`{{year}}` is replaced with the current year at build time — used for the
+footer copyright, so it never needs a manual yearly edit. Note the year is
+stamped when you run the build, not when a visitor loads the page: rebuild and
+redeploy at least once a year (any content change does it) to keep it current.
+
+The privacy policy's "last updated" date is deliberately hardcoded — it records
+when the policy actually changed and must not track the clock.
+
 ## Why two files
 
 A single page that swapped languages with JavaScript could only ever be indexed
