@@ -38,12 +38,13 @@ const LOCALES = {
 function target(page, locale) {
   const rel = LOCALES[locale].root + page.dir;
   const depth = rel.split("/").filter(Boolean).length;
+  const pageDepth = page.dir.split("/").filter(Boolean).length;
   return {
     out: path.join(ROOT, rel, "index.html"),
     href: `${ORIGIN}/${rel}`,
     prefix: "../".repeat(depth),
     // Home in this locale, relative to the current page.
-    home: depth ? "../".repeat(depth - (page.dir ? 1 : 0)) || "./" : "./",
+    home: pageDepth ? "../".repeat(pageDepth) : "./",
   };
 }
 
@@ -174,6 +175,11 @@ function build(page, locale, template, translations, tgt) {
   // Same-page anchors only resolve on the home page; elsewhere point home.
   if (page.dir) {
     html = html.replace(/href="#(services|cases|company|top)"/g, `href="${tgt.home}#$1"`);
+    // The active language control should remain an on-page link.
+    html = html.replace(
+      /(<a class="language-button is-active") href="[^"]+#top"/,
+      '$1 href="#top"'
+    );
   }
 
   // Drop the runtime i18n script entirely — copy is now static.
